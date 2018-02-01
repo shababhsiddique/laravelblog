@@ -1,0 +1,48 @@
+/*!
+ * Start Bootstrap - Blog Home (https://startbootstrap.com/template-overviews/blog-home)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-home/blob/master/LICENSE)
+ */
+
+*{
+    border-radius: 0px !important;
+}
+
+.space-50{
+    margin-bottom: 50px;
+}
+
+
+.categorylist a{
+    text-decoration: none;
+}
+
+.categorylist a:hover{
+    text-decoration: none;
+}
+
+#tegcloud .btn{
+    border-radius: 20px !important;
+    margin-bottom: 5px;
+}
+
+.content-wrapper{
+    
+}
+
+.sidebar-wrapper{
+    
+}
+
+
+.fullwidth-wrapper{
+    
+}
+
+span.badge{
+    border-radius: 10px !important;
+}
+
+div.widget{
+    /*border: #000 solid 1px;*/
+}
