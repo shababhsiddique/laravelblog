@@ -1,6 +1,11 @@
 1) git clone https://github.com/shababhsiddique/laravelblog.git (on remote machine)
+
 2) cd yourproject
+
 3) composer install (this will create 'vendor' folder and download all packages)
+
 4) Create and edit .env file (use .env.example as base)
    for windows users use powershell to 
         cp .env.example .env to create a copy
+
+5) php artisan key:generate
