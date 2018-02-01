@@ -9,3 +9,4 @@
         cp .env.example .env to create a copy
 
 5) php artisan key:generate
+    will create the unique application key for the .env file
