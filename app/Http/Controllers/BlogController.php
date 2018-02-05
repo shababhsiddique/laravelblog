@@ -13,7 +13,10 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('layout');
+        
+        $mainContent = view('blog.pages.index');
+        
+        return view('blog.master')->with("mainContent",$mainContent);
     }
 
     /**

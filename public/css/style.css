@@ -1,0 +1,154 @@
+
+main {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+.widget-wrapper {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 2rem;
+}
+
+
+.navbar {
+    background-color: #53463d;
+}
+
+footer.page-footer {
+    background-color: #53463d;
+    margin-top: 2rem;
+}
+
+.list-group-item.active {
+    background-color: #a3b0c2;
+    border-color: #a3b0c2
+}
+
+.list-group-item:not(.active) {
+    color: #222;
+}
+
+.list-group-item:not(.active):hover {
+    color: #666;
+}
+
+.card {
+    font-weight: 300;
+}
+
+.navbar .btn-group .dropdown-menu a:hover {
+    color: #000 !important;
+}
+
+.navbar .btn-group .dropdown-menu a:active {
+    color: #fff !important;
+}
+
+@media (min-width: 768px) {
+    .media .avatar {
+        width: 64px;
+    }
+}
+@media (max-width: 767px) {
+    .media .avatar {
+        width: 160px;
+    }
+}
+
+/* Ecommerce TEMPLATE STYLES */
+
+
+.extra-margins {
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.divider-new {
+    margin-top: 0;
+}
+
+.reviews {
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+
+/*Contact*/
+.blue.accent-1 {
+    background-color: #82b1ff!important;
+}
+
+.form-header {
+    color: #fff;
+    text-align: center;
+    margin-top: -50px;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    border-radius: 2px;
+}
+
+.md-form .prefix.grey-text {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.card .card-body h3 {
+    margin-bottom: 0;
+    padding: .7rem;
+}
+
+.btn-floating {
+    position: relative;
+    z-index: 1;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    width: 47px;
+    height: 47px;
+    padding: 0;
+    border-radius: 50%;
+    margin: 10px;
+    background-color: #a6c;
+    color: #fff;
+    cursor: pointer;
+    -webkit-transition: .3s;
+    transition: .3s;
+    
+    
+}
+
+.btn-floating i{
+    display: inline-block;
+    width: inherit;
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 47px;
+    text-align: center;
+}
+
+.contact-form-wr{
+    margin-top: -45px;
+}
+
+.margintop50{
+    margin-top: 50px;
+}
+
+.margintop100{
+    margin-top: 100px;
+}
+
+.ecomheadersel{
+    border: none;
+    top: 4px;
+    position: relative;
+}
+
+.ecomheadersearch{
+    min-width: 250px;
+}
