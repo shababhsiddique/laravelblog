@@ -12,12 +12,15 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home
+                        <a class="nav-link" href="{{URL::to('/')}}">Blog
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Blog</a>
+                        <a class="nav-link" href="{{URL::to('/about')}}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{URL::to('/contact')}}">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="ecommerce.html">Ecommerce</a>

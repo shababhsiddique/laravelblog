@@ -16,7 +16,18 @@ class BlogController extends Controller
         
         $mainContent = view('blog.pages.index');
         
-        return view('blog.master')->with("mainContent",$mainContent);
+        return view('blog.master')
+                ->with("mainContent",$mainContent);
+    }
+    
+    public function contact()
+    {
+        
+        $mainContent = view('blog.pages.contact');
+        
+        return view('blog.master')
+                ->with("mainContent",$mainContent);
+        
     }
 
     /**
