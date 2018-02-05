@@ -198,16 +198,16 @@
         <!-- SCRIPTS -->
 
         <!-- JQuery -->
-        <script type="text/javascript" src="{{asset('public/js/jquery-3.1.1.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('public/js/jquery-3.1.1.js')}}"></script>
 
         <!-- Bootstrap dropdown -->
         <script type="text/javascript" src="{{asset('public/js/popper.min.js')}}"></script>
 
         <!-- Bootstrap core JavaScript -->
-        <script type="text/javascript" src="{{asset('public/js/bootstrap.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('public/js/bootstrap.js')}}"></script>
 
         <!-- MDB core JavaScript -->
-        <script type="text/javascript" src="{{asset('public/js/mdb.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('public/js/mdb.js')}}"></script>
 
         <script>
             new WOW().init();
