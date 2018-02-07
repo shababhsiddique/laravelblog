@@ -1,4 +1,4 @@
-@include('blog.master')
+@include('master')
 
 @section('mainContent')
 

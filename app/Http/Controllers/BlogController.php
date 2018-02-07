@@ -11,22 +11,57 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //Layout Holder
+    private $layout;
+    
+    
+    public function __construct() {
+        
+        
+        //Initialize Sidebar Contents
+        $this->layout['sidebar'] = view('sidebar',[
+            "msg" => "Custom Sidebar Msg"
+        ]);
+        
+    }
+
+    
+    /**
+     * Blog Landing Page
+     * lists all post prefaces
+     */
     public function index()
     {
         
-        $mainContent = view('blog.pages.index');
+        $this->layout['main'] = view('blog.index');
         
-        return view('blog.master')
-                ->with("mainContent",$mainContent);
+        return view('master', $this->layout);
+        
     }
+    
+    
+    /**
+     * Blog Single Post View
+     * View Full post and Comments
+     */
+    public function post($postId)
+    {
+        
+        $this->layout['main'] = view('blog.index');
+        
+        return view('master', $this->layout);
+        
+    }
+    
+    
     
     public function contact()
     {
         
-        $mainContent = view('blog.pages.contact');
+        $this->layout['main'] = view('blog.contact');
+        unset($this->layout['sidebar']);
         
-        return view('blog.master')
-                ->with("mainContent",$mainContent);
+        return view('master', $this->layout);
         
     }
 

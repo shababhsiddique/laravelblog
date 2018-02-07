@@ -17,6 +17,9 @@ Route::get('/', 'BlogController@index');
 Route::get('/contact', 'BlogController@contact');
 
 
+Route::get('/post/{id}', 'BlogController@post');
+
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
