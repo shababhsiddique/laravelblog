@@ -22,9 +22,6 @@
                     <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
                         <a class="nav-link" href="{{URL::to('/contact')}}">Contact</a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="ecommerce.html">Ecommerce</a>
-                    </li>
                     <li class="nav-item btn-group">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages
                         </a>
@@ -37,19 +34,26 @@
                         </div>
                     </li>
                 </ul>
-                <hr class="visible-md"/>
-                <form class="form-inline">
+                <ul class="navbar-nav ml-auto nav-flex-icons">
+                    <li class="nav-item">
+                        <a class="btn btn-link waves-effect waves-light" href="{{url('login')}}">
+                            <i class="fa fa-sign-in"></i> <strong>Login</strong>
+                        </a>
+                    </li>
+                    
+<!--                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <i class="fa fa-user"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-danger" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item waves-effect waves-light" href="#">Action</a>
+                            <a class="dropdown-item waves-effect waves-light" href="#">Another action</a>
+                            <a class="dropdown-item waves-effect waves-light" href="#">Something else here</a>
+                        </div>
+                    </li>-->
+                </ul>
 
-                    <select class="form-control mr-md-2 ecomheadersel">
-                        <option>Category</option>
-                        <option>Category</option>
-                        <option>Category</option>
-                        <option>Category</option>
-                    </select>
-                    <input class="form-control mr-md-5 ecomheadersearch" type="text" placeholder="Search" aria-label="Search">
-
-                    <button class="btn btn-primary btn-md" type="submit"><i class="fa fa-search"></i></button>
-                </form>
+                
             </div>
         </div>
     </nav>

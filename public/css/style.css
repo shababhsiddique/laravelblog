@@ -152,3 +152,14 @@ footer.page-footer {
 .ecomheadersearch{
     min-width: 250px;
 }
+
+.btn-link{
+    color: #212529 !important;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.btn-link:hover{
+    text-decoration: none !important;
+    color: #717579 !important;
+}
