@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg navbar-light blue-grey lighten-5 fixed-top scrolling-navbar">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt=""></a>
+                <img src="{{asset('public/img/mdb-transparent.png')}}" height="30" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
