@@ -10,3 +10,10 @@
 
 5) php artisan key:generate
     will create the unique application key for the .env file
+
+For Database:
+
+6) Create database . eg. db_laravel_blog_batch11
+
+7) run migration
+        php artisan migrate
