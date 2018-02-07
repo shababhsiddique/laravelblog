@@ -18,7 +18,7 @@ class BlogController extends Controller {
 
 
         //Initialize Sidebar Contents
-        $this->layout['sidebar'] = view('sidebar', [
+        $this->layout['sidebar'] = view('layouts.sidebar', [
             "msg" => "Custom Sidebar Msg"
         ]);
     }
@@ -29,16 +29,21 @@ class BlogController extends Controller {
      */
     public function index() {
 
-        $this->layout['main_content'] = view('blog.index');
+        $this->layout['main_content'] = view('pages.index');
 
-        return view('master', $this->layout);
+        return view('layouts.master', $this->layout);
     }
 
+    
+    /**
+     * About Us Page
+     * @return type
+     */
     public function about() {
 
-        $this->layout['main_content'] = view('blog.index');
+        $this->layout['main_content'] = view('pages.index');
 
-        return view('master', $this->layout);
+        return view('layouts.master', $this->layout);
     }
 
     /**
@@ -47,9 +52,9 @@ class BlogController extends Controller {
      */
     public function post($postId) {
         
-        $this->layout['main_content'] = view('blog.viewpost');
+        $this->layout['main_content'] = view('pages.viewpost');
 
-        return view('master', $this->layout);
+        return view('layouts.master', $this->layout);
 
 //        $main = view("blog.viewpost");
 //        $sidebar = view('sidebar', [
@@ -61,14 +66,20 @@ class BlogController extends Controller {
 //                        ->with("sidebar", $sidebar);
     }
 
+    
+    /**
+     * Contact Us Page
+     * @return type
+     */
     public function contact() {
 
-        $this->layout['main_content'] = view('blog.contact');
+        $this->layout['main_content'] = view('pages.contact');
         unset($this->layout['sidebar']);
 
-        return view('master', $this->layout);
+        return view('layouts.master', $this->layout);
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *

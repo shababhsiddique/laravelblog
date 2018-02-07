@@ -1,4 +1,4 @@
-@include('master')
+@include('layouts.master')
 
 @section('sidebarContent')
 
