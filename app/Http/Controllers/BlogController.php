@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
-{
+class BlogController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
@@ -13,56 +13,60 @@ class BlogController extends Controller
      */
     //Layout Holder
     private $layout;
-    
-    
+
     public function __construct() {
-        
-        
+
+
         //Initialize Sidebar Contents
-        $this->layout['sidebar'] = view('sidebar',[
+        $this->layout['sidebar'] = view('sidebar', [
             "msg" => "Custom Sidebar Msg"
         ]);
-        
     }
 
-    
     /**
      * Blog Landing Page
      * lists all post prefaces
      */
-    public function index()
-    {
-        
-        $this->layout['main'] = view('blog.index');
-        
+    public function index() {
+
+        $this->layout['main_content'] = view('blog.index');
+
         return view('master', $this->layout);
-        
     }
-    
-    
+
+    public function about() {
+
+        $this->layout['main_content'] = view('blog.index');
+
+        return view('master', $this->layout);
+    }
+
     /**
      * Blog Single Post View
      * View Full post and Comments
      */
-    public function post($postId)
-    {
+    public function post($postId) {
         
-        $this->layout['main'] = view('blog.index');
-        
+        $this->layout['main_content'] = view('blog.viewpost');
+
         return view('master', $this->layout);
-        
+
+//        $main = view("blog.viewpost");
+//        $sidebar = view('sidebar', [
+//            "msg" => "Custom Sidebar Msg"
+//        ]);
+//
+//        return view('master')
+//                        ->with("mainC", $main)
+//                        ->with("sidebar", $sidebar);
     }
-    
-    
-    
-    public function contact()
-    {
-        
-        $this->layout['main'] = view('blog.contact');
+
+    public function contact() {
+
+        $this->layout['main_content'] = view('blog.contact');
         unset($this->layout['sidebar']);
-        
+
         return view('master', $this->layout);
-        
     }
 
     /**
@@ -70,8 +74,7 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -81,8 +84,7 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
 
@@ -92,8 +94,7 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         //
     }
 
@@ -103,8 +104,7 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
@@ -115,8 +115,7 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         //
     }
 
@@ -126,8 +125,8 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
+
 }
