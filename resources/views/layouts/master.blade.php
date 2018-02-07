@@ -37,35 +37,20 @@
                 <div class="row">
 
                     <!--Main column-->
-                    @if(isset($sidebar))
-                    <div class="col-lg-8">
-                        @endif                        
-                        @if(!isset($sidebar))
-                        <div class="col-lg-12">
-                            @endif   
-
-                            @yield('mainContent')
-                        </div>
-                        <!--Main column end-->
+                    @yield('mainContent')
+                    <!--Main column end-->
 
 
-                        <!--Sidebar-->
-                        @if(isset($sidebar))
-                        <div class="col-lg-4 z-depth-1" style="padding-top: 20px">
-                            @endif
+                    <!--Sidebar-->
+
+                    @yield('sidebarContent')
 
 
-                            @yield('sidebarContent')
 
-
-                            @if(isset($sidebar))
-                        </div>
-                        @endif
-
-                        <!--/.Sidebar-->
-                    </div>
+                    <!--/.Sidebar-->
                 </div>
-                <!--/.Main layout-->
+            </div>
+            <!--/.Main layout-->
 
         </main>
 
