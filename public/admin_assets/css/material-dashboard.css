@@ -720,7 +720,7 @@ h2.title {
 .off-canvas-sidebar .nav li>a {
     margin: 10px 15px 0;
     border-radius: 3px;
-    color: #3C4858;
+    color: black;
 }
 
 .sidebar .nav li:first-child>a,
