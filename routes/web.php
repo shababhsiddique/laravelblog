@@ -11,24 +11,19 @@
 |
 */
 
+/* Blog */
 Route::get('/', 'BlogController@index');
-
-
 Route::get('/contact', 'BlogController@contact');
-
-
 Route::get('/about', 'BlogController@about');
-
-
 Route::get('/post/{id}', 'BlogController@post');
-
 
 
 /* Auth Generated */
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-
+/* Admin */
 Route::get('/admin', 'AdminController@index');
+
+
