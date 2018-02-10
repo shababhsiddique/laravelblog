@@ -6779,3 +6779,13 @@ footer .btn {
         overflow: visible;
     }
 }
+
+
+
+.form-control{
+    color: #222 !important;
+}
+
+.control-label{
+    color: #222 !important;
+}

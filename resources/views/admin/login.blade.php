@@ -12,7 +12,7 @@
         <!-- Bootstrap core CSS     -->
         <link href="{{asset('public/admin_assets/css/bootstrap.min.css')}}" rel="stylesheet" />
         <!--  Material Dashboard CSS    -->
-        <link href="{{asset('public/admin_assets/css/material-dashboard.css?v=1.2.0')}}" rel="stylesheet" />
+        <link href="{{asset('public/admin_assets/css/material-dashboard.css')}}" rel="stylesheet" />
         <!--  CSS for Demo Purpose, don't include it in your project     -->
         <link href="{{asset('public/admin_assets/css/demo.css')}}" rel="stylesheet" />
         <!--     Fonts and icons     -->
@@ -23,35 +23,48 @@
     <body>
         <div class="wrapper">
 
-
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4 col-md-offset-4">
                         <div class="card" style='margin-top:20vh'>
                             <div class="card-header" data-background-color="purple">
-                                <h4 class="title">Login</h4>
+                                <h4 class="title">Login </h4>
                             </div>
                             <div class="card-content">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Username</label>
-                                                <input type="text" class="form-control">
-                                            </div>
+                                {!! Form::open(['url' => 'dashboard','method' => 'post']) !!}
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Admin Email</label>
+                                            <input name="admin_email" type="email" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Password</label>
-                                                <input type="text" class="form-control">
-                                            </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Password</label>
+                                            <input name="password" type="password" class="form-control">
                                         </div>
-                                    </div>                                        
-                                    <button type="submit" class="btn btn-primary pull-right">Login</button>
-                                    <div class="clearfix"></div>
-                                </form>
+                                    </div>
+                                </div>  
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <strong><?php
+                                            $exception = Session::get('exception');
+                                            if (isset($exception)) {
+                                                echo $exception;
+                                                Session::put('exception', '');
+                                            }
+                                            ?></strong>
+
+                                    </div>                                    
+                                </div>
+                                <button type="submit" class="btn btn-primary pull-right">Login</button>
+                                <div class="clearfix"></div>
+
+                                {!! Form::close() !!}
                             </div>
                         </div>
                     </div>
