@@ -20,10 +20,10 @@ class AdminController extends Controller {
 
     public function adminLogin(Request $request) {
 
+//        return view('admin.master');
         $email = $request->admin_email;
         $password = $request->password;
 
-//        $email = DB::table('users')->where('name', 'John')->value('email');
         $result = DB::table('admin')
                 ->where('admin_email', $email)
                 ->where('password', md5($password))
@@ -31,14 +31,27 @@ class AdminController extends Controller {
         
 
         if($result){
-            Session::put('loggedin','ya');
+            
+            //Admin Logged In Session Flag
+            Session::put('admin_loggedin',true);
+            
+            //Admin Name 
             Session::put('admin_name',$result->admin_name);
+            
+            
+            //MSG for message board
+            Session::put('message',array(
+                'title' => 'Welcome, '.$result->admin_name,
+                'body' => 'You Have Successfully Logged In',
+                'type' => 'success'
+            ));
+            
+            //Load view
             return view('admin.master');
         }else{
             Session::put('exception','User Id or Password Invalid');
             return Redirect::to('/admin');
         }
-        //
     }
 
     /**

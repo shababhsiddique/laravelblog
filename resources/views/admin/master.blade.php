@@ -28,18 +28,20 @@
     </head>
 
     <body>
+
+
         <div class="wrapper">
-            <div class="sidebar" data-color="purple" data-image="{{asset('public/admin_assets/img/sidebar-1.jpg')}}">
+            <div class="sidebar" data-color="green" data-image="{{asset('public/admin_assets/img/sidebar-1.jpg')}}">
                 <!--
             Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
     
             Tip 2: you can also add an image using data-image tag
                 -->
-                <div class="logo">
+<!--                <div class="logo">
                     <a href="http://www.creative-tim.com" class="simple-text">
-                        Creative Tim
+                        My Site
                     </a>
-                </div>
+                </div>-->
                 <div class="sidebar-wrapper">
                     <ul class="nav">
                         <li>
@@ -103,7 +105,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#"> Table List </a>
+                            <a class="navbar-brand" href="#"> <strong>Table List</strong> </a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
@@ -159,11 +161,11 @@
                 </nav>
                 <div class="content">
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3>Welcome : <?php echo Session::get('admin_name')?></h3>
-                            </div>
-                        </div>
+                        
+                        <!--notification start-->
+                        @include('admin.common.notification')
+                        <!--notification end-->
+                        
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
@@ -324,12 +326,12 @@
         </div>
 
         <!--  PerfectScrollbar Library -->
-        <script src="{{asset('public/admin_assets/js/perfect-scrollbar.jquery.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('public/admin_assets/js/perfect-scrollbar.jquery.min.js')}}"></script>
         <!--  Notifications Plugin    -->
-        <script src="{{asset('public/admin_assets/js/bootstrap-notify.js')}}"></script>
-      
+        <script type="text/javascript" src="{{asset('public/admin_assets/js/bootstrap-notify.js')}}"></script>
+
         <!-- Material Dashboard javascript methods -->
-        <script src="{{asset('public/admin_assets/js/material-dashboard.js')}}"></script>
+        <script type="text/javascript" src="{{asset('public/admin_assets/js/material-dashboard.js')}}"></script>
 
     </body>
 

@@ -2,7 +2,7 @@
 
 2) cd yourproject
 
-3) composer install (this will create 'vendor' folder and download all packages)
+3) composer install (this will create 'vendor' folder and download all packages)    
 
 4) Create and edit .env file (use .env.example as base)
    for windows users use powershell to 
@@ -17,3 +17,7 @@ For Database:
 
 7) run migration
         php artisan migrate
+
+        or
+
+        php artisan migrate:fresh (if you already have database and want to overwrite)

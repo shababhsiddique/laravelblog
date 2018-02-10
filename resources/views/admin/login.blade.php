@@ -28,16 +28,39 @@
                     <div class="col-md-4 col-md-offset-4">
                         <div class="card" style='margin-top:20vh'>
                             <div class="card-header" data-background-color="purple">
-                                <h4 class="title">Login </h4>
+                                <h4 class="title"><strong>Login</strong> </h4>
                             </div>
                             <div class="card-content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <?php
+                                        $exception = Session::get('exception');
+                                        if (isset($exception) && $exception!="") {
+                                            ?>                                            
+                                            <div class="alert alert-danger alert-with-icon animated fadeInDown">
+                                                <div class="alert-icon">
+                                                    <i class="material-icons">warning</i>
+                                                </div>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                                                </button>
+                                                <b>Error:</b> {{$exception}}
+                                            </div>
+                                            <?php
+                                            Session::put('exception', '');
+                                        }
+                                        ?>
+
+                                    </div>                                    
+                                </div>
+
                                 {!! Form::open(['url' => 'dashboard','method' => 'post']) !!}
 
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Admin Email</label>
-                                            <input name="admin_email" type="email" class="form-control">
+                                            <input name="admin_email" type="email" class="form-control" required="">
                                         </div>
                                     </div>
                                 </div>
@@ -45,22 +68,10 @@
                                     <div class="col-md-12">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Password</label>
-                                            <input name="password" type="password" class="form-control">
+                                            <input name="password" type="password" class="form-control" required="">
                                         </div>
                                     </div>
-                                </div>  
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <strong><?php
-                                            $exception = Session::get('exception');
-                                            if (isset($exception)) {
-                                                echo $exception;
-                                                Session::put('exception', '');
-                                            }
-                                            ?></strong>
-
-                                    </div>                                    
-                                </div>
+                                </div>                                  
                                 <button type="submit" class="btn btn-primary pull-right">Login</button>
                                 <div class="clearfix"></div>
 
@@ -84,11 +95,11 @@
     <!--  Charts Plugin -->
     <!--<script src="{{asset('public/admin_assets/js/chartist.min.js')}}"></script>-->
     <!--  Dynamic Elements plugin -->
-    <!--<script src="{{asset('public/admin_assets/js/arrive.min.js')}}"></script>-->
+    <script src="{{asset('public/admin_assets/js/arrive.min.js')}}"></script>
     <!--  PerfectScrollbar Library -->
     <script src="{{asset('public/admin_assets/js/perfect-scrollbar.jquery.min.js')}}"></script>
     <!--  Notifications Plugin    -->
-    <!--<script src="{{asset('public/admin_assets/js/bootstrap-notify.js')}}"></script>-->
+    <script src="{{asset('public/admin_assets/js/bootstrap-notify.js')}}"></script>
     <!--  Google Maps Plugin    -->
     <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>-->
     <!-- Material Dashboard javascript methods -->
