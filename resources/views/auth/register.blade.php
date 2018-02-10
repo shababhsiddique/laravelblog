@@ -93,7 +93,7 @@
                             <strong>Register</strong>
                         </button>
                         
-                        <a href="{{url('/login')}}" class="pull-right btn btn-primary" ><span class="text-lowercase">Already Member?</span> &nbsp;&nbsp;&nbsp;<strong>Sign In</strong> <div class="ripple-container"></div></a>
+                        <a href="{{url('/login')}}" class="btn btn-sm btn-primary waves-effect waves-light" ><span class="text-lowercase">Already Member?</span> &nbsp;&nbsp;&nbsp;<strong>Sign In</strong> <div class="ripple-container"></div></a>
                     </div>
                 </div>
                 

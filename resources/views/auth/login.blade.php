@@ -60,11 +60,11 @@
                         <button type="submit" class="btn btn-primary">
                             <strong>Login</strong>
                         </button>
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                        <a class="btn btn-link" href="{{ route('password.request') }}" style="margin-left: 0px">
                             Forgot Your Password?
                         </a>
-                        
-                        <a href="{{url('/register')}}" class=" btn btn-default waves-effect waves-light" >
+                        <br/>                        
+                        <a href="{{url('/register')}}" class=" btn btn-sm btn-default waves-effect waves-light" >
                              <span class="text-lowercase">New Here?</span> &nbsp;&nbsp;&nbsp;<strong>Register Now!</strong> <div class="ripple-container"></div>
                         </a>
                     </div>
