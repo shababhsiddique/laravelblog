@@ -802,7 +802,7 @@ h2.title {
     right: 10%;
     height: 1px;
     width: 80%;
-    background-color: rgba(180, 180, 180, 0.3);
+    background-color: rgba(180, 180, 180, 0.7);
 }
 
 .sidebar .logo p,
@@ -3451,7 +3451,7 @@ select.form-control[multiple],
 .table>thead>tr>th {
     border-bottom-width: 1px;
     font-size: 1em;
-    font-weight: 300;
+    font-weight: 600;
 }
 
 .table .radio,
@@ -4824,7 +4824,7 @@ fieldset[disabled] .navbar .btn-link:focus {
         .navbar-form {
           margin-top: 10px;
         }
-    */
+        */
     }
     .navbar .navbar-brand {
         height: 50px;
@@ -5092,8 +5092,9 @@ footer .btn {
     margin: 25px 0;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
     border-radius: 3px;
-    color: rgba(0, 0, 0, 0.87);
+    color: rgba(0, 0, 0, 1);
     background: #fff;
+    font-weight: 500;
 }
 
 .card .card-height-indicator {
@@ -5157,6 +5158,8 @@ footer .btn {
 
 .card .card-header .title {
     color: #FFFFFF;
+    
+    font-weight: 500;
 }
 
 .card .card-header .category {
@@ -6788,4 +6791,15 @@ footer .btn {
 
 .control-label{
     color: #222 !important;
+}
+
+.navbar-custom{
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.14);
+    border-radius: 3px;
+    color: rgba(0, 0, 0, 0.87);
+    background: rgba(255,255,255,0.90);
+}
+.sidebar .nav li{
+    
+    font-weight: 500;
 }

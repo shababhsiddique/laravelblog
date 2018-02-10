@@ -31,17 +31,17 @@
 
 
         <div class="wrapper">
-            <div class="sidebar" data-color="green" data-image="{{asset('public/admin_assets/img/sidebar-1.jpg')}}">
+            <div class="sidebar" data-color="green" data-image="{{asset('public/admin_assets/img/sidebar-2.jpg')}}">
                 <!--
             Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
     
             Tip 2: you can also add an image using data-image tag
                 -->
-<!--                <div class="logo">
+                <div class="logo">
                     <a href="http://www.creative-tim.com" class="simple-text">
-                        My Site
+                        Admin
                     </a>
-                </div>-->
+                </div>
                 <div class="sidebar-wrapper">
                     <ul class="nav">
                         <li>
@@ -96,7 +96,7 @@
                 </div>
             </div>
             <div class="main-panel">
-                <nav class="navbar navbar-transparent navbar-absolute">
+                <nav class="navbar navbar-custom navbar-absolute ">
                     <div class="container-fluid">
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle" data-toggle="collapse">
@@ -169,7 +169,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
-                                    <div class="card-header" data-background-color="purple">
+                                    <div class="card-header" data-background-color="green">
                                         <h4 class="title">Simple Table</h4>
                                         <p class="category">Here is a subtitle for this table</p>
                                     </div>
