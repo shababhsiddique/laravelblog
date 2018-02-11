@@ -1,4 +1,4 @@
-@include('admin.master')
+@extends('admin.master')
 
 @section('adminNotification')
 <?php

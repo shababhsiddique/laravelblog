@@ -1,6 +1,3 @@
-@include('admin.master')
-
-@section('adminSidebar')
 <div class="sidebar" data-color="green" data-image="{{asset('public/admin_assets/img/sidebar-2.jpg')}}">
     <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text">
@@ -60,5 +57,3 @@
         </ul>
     </div>
 </div>
-
-@endsection

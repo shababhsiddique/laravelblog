@@ -19,12 +19,8 @@ class AdminController extends Controller {
 
     public function __construct() {
 
-        $this->layout['adminTopbar'] = view('admin.common.topbar');
-        $this->layout['adminSidebar'] = view('admin.common.sidebar');
-        
         //Initialize Notifications View
         $this->layout['adminNotification'] = view('admin.common.notification');
-        
     }
 
     /**
@@ -78,12 +74,16 @@ class AdminController extends Controller {
      * @return type
      */
     public function test() {
-        
-        //Load Component
-        $this->layout['adminContent'] = view('admin.modules.tables');
 
-        //return view
-        return view('admin.master', $this->layout);
+        //Message for Notification Builder
+        Session::put('message', array(
+            'title' => 'Welcome, ',
+            'body' => 'You Have Successfully Logged In',
+            'type' => 'primary'
+        ));
+
+        //Load Component
+        return view('admin.modules.tables', $this->layout);
     }
 
     /**

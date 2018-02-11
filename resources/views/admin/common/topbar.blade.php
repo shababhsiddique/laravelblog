@@ -1,6 +1,3 @@
-@include('admin.master')
-
-@section('adminTopbar')
 <nav class="navbar navbar-custom navbar-absolute">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -59,4 +56,3 @@
         </div>
     </div>
 </nav>
-@endsection

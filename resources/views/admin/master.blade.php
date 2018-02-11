@@ -35,13 +35,13 @@
         <div class="wrapper">
 
             <!--sidebar start-->
-            @yield('adminSidebar')
+            @include('admin.common.sidebar')
             <!--sidebar end-->
 
             <div class="main-panel">
 
                 <!--top navbar start-->
-                @yield('adminTopbar')
+                @include('admin.common.topbar')
                 <!--top navbar end--> 
 
                 <div class="content">
