@@ -14,13 +14,30 @@ class AdminController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
+    //View Components Holder
+    private $layout;
+
+    public function __construct() {
+
+        $this->layout['adminTopbar'] = view('admin.common.topbar');
+        $this->layout['adminSidebar'] = view('admin.common.sidebar');
+        
+        //Initialize Notifications View
+        $this->layout['adminNotification'] = view('admin.common.notification');
+        
+    }
+
+    /**
+     * Landing Page
+     * @return type
+     */
     public function index() {
+
         return view('admin.login');
     }
 
     public function adminLogin(Request $request) {
 
-//        return view('admin.master');
         $email = $request->admin_email;
         $password = $request->password;
 
@@ -28,30 +45,45 @@ class AdminController extends Controller {
                 ->where('admin_email', $email)
                 ->where('password', md5($password))
                 ->first();
-        
 
-        if($result){
-            
+
+        if ($result) {
+
             //Admin Logged In Session Flag
-            Session::put('admin_loggedin',true);
-            
+            Session::put('admin_loggedin', true);
+
             //Admin Name 
-            Session::put('admin_name',$result->admin_name);
-            
-            
-            //MSG for message board
-            Session::put('message',array(
-                'title' => 'Welcome, '.$result->admin_name,
+            Session::put('admin_name', $result->admin_name);
+
+            //Message for Notification Builder
+            Session::put('message', array(
+                'title' => 'Welcome, ' . $result->admin_name,
                 'body' => 'You Have Successfully Logged In',
-                'type' => 'success'
+                'type' => 'primary'
             ));
-            
-            //Load view
-            return view('admin.master');
-        }else{
-            Session::put('exception','User Id or Password Invalid');
+
+            //Load Component
+            $this->layout['adminContent'] = view('admin.modules.dashboard');
+
+            //return view
+            return view('admin.master', $this->layout);
+        } else {
+            Session::put('exception', 'User Id or Password Invalid');
             return Redirect::to('/admin');
         }
+    }
+
+    /**
+     * For testing purposes
+     * @return type
+     */
+    public function test() {
+        
+        //Load Component
+        $this->layout['adminContent'] = view('admin.modules.tables');
+
+        //return view
+        return view('admin.master', $this->layout);
     }
 
     /**

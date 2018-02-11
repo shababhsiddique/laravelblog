@@ -27,6 +27,7 @@ class BlogController extends Controller {
      * Blog Landing Page
      * lists all post prefaces
      */
+        
     public function index() {
 
         $this->layout['main_content'] = view('pages.index');

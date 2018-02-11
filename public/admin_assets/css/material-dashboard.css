@@ -659,8 +659,8 @@ h2.title {
     top: 0;
     bottom: 0;
     left: 0;
-    z-index: 1;
-    box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);    
+    z-index: 1031;  //1 default, 1031 = above the header bar)
 }
 
 .sidebar .sidebar-wrapper,
@@ -940,7 +940,7 @@ h2.title {
 }
 
 .main-panel>.content {
-    margin-top: 70px;
+    margin-top: 60px;
     padding: 30px 15px;
     min-height: calc(100% - 123px);
 }
@@ -3359,7 +3359,7 @@ select.form-control[multiple],
 }
 
 .alert.alert-info {
-    background-color: #00d3ee;
+    background-color: #15BBCF;
     color: #ffffff;
     border-radius: 3px;
     box-shadow: 0 12px 20px -10px rgba(0, 188, 212, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2);
@@ -5158,7 +5158,7 @@ footer .btn {
 
 .card .card-header .title {
     color: #FFFFFF;
-    
+
     font-weight: 500;
 }
 
@@ -6797,9 +6797,23 @@ footer .btn {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.14);
     border-radius: 3px;
     color: rgba(0, 0, 0, 0.87);
-    background: rgba(255,255,255,0.90);
+    background: #FEFEFE; 
 }
 .sidebar .nav li{
-    
     font-weight: 500;
+}
+
+.container-fluid > .breadcrumb{    
+    padding: 0px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    font-weight: 500;
+}
+
+.breadcrumb > .active{
+    font-weight: bolder;
+}
+
+.form-login .form-group .form-control{
+    width: 100%;
 }

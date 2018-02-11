@@ -43,11 +43,7 @@
 
 
                     <!--Sidebar-->
-
                     @yield('sidebarContent')
-
-
-
                     <!--/.Sidebar-->
                 </div>
             </div>

@@ -26,6 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 /* Admin */
 Route::get('/admin', 'AdminController@index');
 Route::post('/dashboard', 'AdminController@adminLogin');
+Route::get('/test', 'AdminController@test');
 //Route::get('/dashboard', 'AdminController@adminLogin');
 
 

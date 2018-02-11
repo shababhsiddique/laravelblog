@@ -25,12 +25,12 @@
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4 col-md-offset-4">
+                    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
                         <div class="card" style='margin-top:20vh'>
                             <div class="card-header" data-background-color="purple">
                                 <h4 class="title"><strong>Login</strong> </h4>
                             </div>
-                            <div class="card-content">
+                            <div class="card-content form-login">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <?php
@@ -71,8 +71,12 @@
                                             <input name="password" type="password" class="form-control" required="">
                                         </div>
                                     </div>
-                                </div>                                  
-                                <button type="submit" class="btn btn-primary pull-right">Login</button>
+                                </div> 
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-primary pull-right">Login</button>
+                                    </div>
+                                </div>                                
                                 <div class="clearfix"></div>
 
                                 {!! Form::close() !!}

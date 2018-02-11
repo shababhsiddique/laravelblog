@@ -1,7 +1,8 @@
 type = ['', 'info', 'success', 'warning', 'danger'];
 
 
-demo = {
+
+script = {
     initPickColor: function() {
         $('.pick-class-label').click(function() {
             var new_class = $(this).attr('new-class');
@@ -46,6 +47,8 @@ demo = {
     },
 
     initDashboardPageCharts: function() {
+        
+        console.log("we are doing this");
 
         /* ----------==========     Daily Sales Chart initialization    ==========---------- */
 
@@ -261,6 +264,25 @@ demo = {
             placement: {
                 from: from,
                 align: align
+            }
+        });
+    },
+    
+    buildMessage: function(messageTitle, messageBody, messageType = 'info', defaultTimer = 1000) {
+        
+        console.log("sup");
+        
+        $.notify({
+            icon: "notifications",
+            title: "<strong>"+messageTitle+"</strong>",
+            message: messageBody
+
+        }, {
+            type: messageType,
+            timer: defaultTimer,
+            placement: {
+                from: 'top',
+                align: 'right'
             }
         });
     }
