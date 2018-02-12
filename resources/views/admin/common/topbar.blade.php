@@ -42,6 +42,12 @@
                         <p class="hidden-lg hidden-md">Profile</p>
                     </a>
                 </li>
+                <li>
+                    <a href="{{url('/adminlogout')}}">
+                        <i class="material-icons">power_settings_new</i>
+                        <p class="hidden-lg hidden-md">Logout</p>
+                    </a>
+                </li>
             </ul>
             <form class="navbar-form navbar-right" role="search">
                 <div class="form-group  is-empty">

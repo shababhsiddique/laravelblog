@@ -34,8 +34,8 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <?php
-                                        $exception = Session::get('exception');
-                                        if (isset($exception) && $exception!="") {
+                                        $msg = Session::get('message');
+                                        if (isset($msg) && $msg!="") {
                                             ?>                                            
                                             <div class="alert alert-danger alert-with-icon animated fadeInDown">
                                                 <div class="alert-icon">
@@ -44,17 +44,17 @@
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true"><i class="material-icons">clear</i></span>
                                                 </button>
-                                                <b>Error:</b> {{$exception}}
+                                                <b>{{$msg['title']}}:</b> {{$msg['body']}}
                                             </div>
                                             <?php
-                                            Session::put('exception', '');
+                                            Session::put('message', '');
                                         }
                                         ?>
 
                                     </div>                                    
                                 </div>
 
-                                {!! Form::open(['url' => 'dashboard','method' => 'post']) !!}
+                                {!! Form::open(['url' => 'adminverify','method' => 'post']) !!}
 
                                 <div class="row">
                                     <div class="col-md-12">
@@ -108,6 +108,8 @@
     <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>-->
     <!-- Material Dashboard javascript methods -->
     <script src="{{asset('public/admin_assets/js/material-dashboard.js?v=1.2.0')}}"></script>
+    
+    
 
 
 </html>

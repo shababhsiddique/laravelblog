@@ -23,9 +23,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-/* Admin */
-Route::get('/admin', 'AdminController@index');
-Route::post('/dashboard', 'AdminController@adminLogin');
+/* Admin Login*/
+Route::get('/admin', 'AdminLoginController@index');
+Route::post('/adminverify', 'AdminLoginController@verify');
+
+/* Admin Panel*/
+Route::get('/adminlogout','AdminController@logout');
+Route::get('/dashboard', 'AdminController@index');
 Route::get('/test', 'AdminController@test');
 //Route::get('/dashboard', 'AdminController@adminLogin');
 
