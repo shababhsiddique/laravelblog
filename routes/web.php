@@ -30,6 +30,10 @@ Route::post('/adminverify', 'AdminLoginController@verify');
 /* Admin Panel*/
 Route::get('/adminlogout','AdminController@logout');
 Route::get('/dashboard', 'AdminController@index');
+
+Route::get('/dashboard/add-category', 'AdminController@addCategory');
+Route::post('/save-category', 'AdminController@saveCategory');
+
 Route::get('/test', 'AdminController@test');
 //Route::get('/dashboard', 'AdminController@adminLogin');
 

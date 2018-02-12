@@ -12,7 +12,7 @@
         <!-- Bootstrap core CSS     -->
         <link href="{{asset('public/admin_assets/css/bootstrap.min.css')}}" rel="stylesheet" />
         <!--  Material Dashboard CSS    -->
-        <link href="{{asset('public/admin_assets/css/material-dashboard.css')}}" rel="stylesheet" />
+        <link href="{{asset('public/admin_assets/css/material-dashboard.css?v=1.0.2')}}" rel="stylesheet" />
         <!--  CSS for Demo Purpose, don't include it in your project     -->
         <link href="{{asset('public/admin_assets/css/demo.css')}}" rel="stylesheet" />
         <!--     Fonts and icons     -->
@@ -37,7 +37,7 @@
                                         $msg = Session::get('message');
                                         if (isset($msg) && $msg!="") {
                                             ?>                                            
-                                            <div class="alert alert-danger alert-with-icon animated fadeInDown">
+                                            <div class="alert alert-{{$msg['type']}} alert-with-icon animated fadeInDown">
                                                 <div class="alert-icon">
                                                     <i class="material-icons">warning</i>
                                                 </div>

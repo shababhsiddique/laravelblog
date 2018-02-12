@@ -6,19 +6,19 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li>
+            <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
                 <a href="{{url('/admin')}}">
                     <i class="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li>
-                <a href="./user.html">
-                    <i class="material-icons">person</i>
-                    <p>User Profile</p>
+            <li class="{{ Request::is('dashboard/add-category') ? 'active' : '' }}">
+                <a href="{{url('/dashboard/add-category')}}">
+                    <i class="material-icons">view_list</i>
+                    <p>Categories</p>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="./table.html">
                     <i class="material-icons">content_paste</i>
                     <p>Table List</p>

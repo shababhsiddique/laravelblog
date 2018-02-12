@@ -13,7 +13,7 @@
         <!-- Bootstrap core CSS     -->
         <link href="{{asset('public/admin_assets/css/bootstrap.min.css')}}" rel="stylesheet" />
         <!--  Material Dashboard CSS    -->
-        <link href="{{asset('public/admin_assets/css/material-dashboard.css?v=1.0.1')}}" rel="stylesheet" />
+        <link href="{{asset('public/admin_assets/css/material-dashboard.css')}}" rel="stylesheet" />
         <!--  CSS for Demo Purpose, don't include it in your project     -->
         <link href="{{asset('public/admin_assets/css/demo.css')}}" rel="stylesheet" />
         <!--     Fonts and icons     -->
@@ -48,7 +48,7 @@
                     <div class="container-fluid">
 
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Home</a></li>
                             <li class="breadcrumb-item active">{{Request::path()}}</li>
                         </ol>
                         <!--notification start-->

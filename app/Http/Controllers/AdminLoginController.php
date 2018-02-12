@@ -7,10 +7,19 @@ use DB;
 use Session;
 use Illuminate\Support\Facades\Redirect;
 
+session_start();
 class AdminLoginController extends Controller {
 
     public function __construct() {
         
+    }
+
+    private function authStatus() {
+        $id = Session::get('admin_id');
+
+        if (isset($id) && $id != 0) {
+            return Redirect::to('/dashboard')->send();
+        }
     }
 
     /**
@@ -18,6 +27,7 @@ class AdminLoginController extends Controller {
      * @return type
      */
     public function index() {
+        $this->authStatus();
         return view('admin.login');
     }
 
@@ -47,11 +57,9 @@ class AdminLoginController extends Controller {
             Session::put('message', array(
                 'title' => 'Welcome, ' . $result->admin_name,
                 'body' => 'You Have Successfully Logged In',
-                'type' => 'primary'
+                'type' => 'success'
             ));
 
-            //Load Component
-            $this->layout['adminContent'] = view('admin.modules.dashboard');
 
             //redirect to Dashboard
             return Redirect::to('/dashboard');

@@ -7,6 +7,8 @@ use DB;
 use Session;
 use Illuminate\Support\Facades\Redirect;
 
+session_start();
+
 class AdminController extends Controller {
 
     /**
@@ -19,22 +21,20 @@ class AdminController extends Controller {
 
     public function __construct() {
 
-        
-        
-        
+
+
+
         //Initialize Notifications View
         $this->layout['adminNotification'] = view('admin.common.notification');
     }
 
-    private function auth_check() {
+    private function authCheck() {
         $id = Session::get('admin_id');
-//        echo "IT IS  ------$id";
+
         if ($id == NULL || $id == 0) {
-//            exit();
             return Redirect::to('/admin')->send();
         }
     }
-    
 
     public function logout() {
         //Admin Logged In Session Flag
@@ -48,26 +48,65 @@ class AdminController extends Controller {
         Session::put('message', array(
             'title' => 'Logged Out, ',
             'body' => 'You are no longer logged in',
-            'type' => 'primary'
+            'type' => 'warning'
         ));
 
         return Redirect::to('/admin');
     }
-    
 
     /**
      * Landing Page
      * @return type
      */
     public function index() {
-        
-        $this->auth_check();
-        
+
+        $this->authCheck();
+
         //Load Component
-        $this->layout['adminContent'] = view('admin.modules.dashboard');
+        //Load Component
+        $this->layout['adminContent'] = view('admin.partials.dashboard');
 
         //return view
         return view('admin.master', $this->layout);
+    }
+
+    /**
+     * For testing purposes
+     * @return type
+     */
+    public function addCategory() {
+
+
+        $this->authCheck();
+
+        //Load Component        
+        $this->layout['adminContent'] = view('admin.partials.category_form');
+
+        //return view
+        return view('admin.master', $this->layout);
+    }
+
+    public function saveCategory(Request $request) {
+
+        $this->authCheck();
+        $data = array();
+
+        $data['category_name'] = $request->category_name;
+        $data['category_description'] = $request->category_description;
+        $data['publication_status'] = $request->publication_status;
+
+        DB::table('category')->insert($data);
+
+
+        //Message for Notification Builder
+        Session::put('message', array(
+            'title' => 'Created Category',
+            'body' => 'Created new category',
+            'type' => 'success'
+        ));
+
+
+        return Redirect::to('/dashboard/add-category');
     }
 
     /**
@@ -84,7 +123,7 @@ class AdminController extends Controller {
         ));
 
         //Load Component
-        return view('admin.modules.tables', $this->layout);
+        return view('admin.partials.tables', $this->layout);
     }
 
 }

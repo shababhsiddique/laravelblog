@@ -10,7 +10,7 @@
             <div class="card-content">
                 <p class="category">Used Space</p>
                 <h3 class="title">49/50
-                    <small>GB</small>
+                    <small>GB<?php //print_r(system("wmic logicaldisk get size, freespace"))?></small>
                 </h3>
             </div>
             <div class="card-footer">
