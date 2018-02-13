@@ -6852,9 +6852,8 @@ footer .btn {
 }
 
 .sidesub ul{
-    width: 95%;
+    width: 100%;
     list-style: none;
-    margin-left: 5%;
     background: transparent;
     border: none;
     box-shadow: none;
@@ -6873,6 +6872,7 @@ ul.sidesub-ul li a:before{
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
+    color: #DDD;
     content: "\f068";
     margin-left: 10px;
     right: 15px;
@@ -6881,6 +6881,7 @@ ul.sidesub-ul li a:before{
 
 ul.sidesub-ul li a{
     box-shadow: none;
+    padding-left: 40px;
     
 }
 

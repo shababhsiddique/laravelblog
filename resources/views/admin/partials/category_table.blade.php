@@ -16,7 +16,7 @@
                             <th>Name</th>
                             <th>Description</th>
                             <th>Status</th>
-                            <th style="width: 190px"></th>
+                            <th style="width: 130px"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -24,77 +24,114 @@
                             <td>Technology</td>
                             <td>All related to the tech. All related to the tech. All related to the tech. All related to the tech. </td>
                             <td>Published</td>
-                            <td class="text-right">
-                                <a class="btn btn-grid btn-primary" href="#"><i class="fa fa-pencil"></i></a>
-                                <a class="btn btn-grid btn-success" href="#"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-grid btn-warning" href="#"><i class="fa fa-eye-slash"></i></a>
-                                <a class="btn btn-grid btn-danger confirmDelete" href="/deleteit"><i class="fa fa-times"></i></a>
+                            <td class="td-actions text-right">
+                                <a type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-sm" data-original-title="Edit">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-info btn-simple btn-sm" data-original-title="Publish">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-warning btn-simple btn-sm" data-original-title="Unpublish">
+                                    <i class="fa fa-eye-slash"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-sm confirmDelete" data-original-title="Delete">
+                                    <i class="fa fa-times"></i>
+                                </a>
                             </td>
                         </tr>
                         <tr>
                             <td>Technology</td>
                             <td>All related to the tech. All related to the tech. All related to the tech. All related to the tech. </td>
                             <td>Published</td>
-                            <td class="text-right">
-                                <a class="btn btn-grid btn-primary" href="#"><i class="fa fa-pencil"></i></a>
-                                <a class="btn btn-grid btn-success" href="#"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-grid btn-warning" href="#"><i class="fa fa-eye-slash"></i></a>
-                                <a class="btn btn-grid btn-danger confirmDelete" href="/deleteit"><i class="fa fa-times"></i></a>
+                            <td class="td-actions text-right">
+                                <a type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-sm" data-original-title="Edit">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-info btn-simple btn-sm" data-original-title="Publish">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-warning btn-simple btn-sm" data-original-title="Unpublish">
+                                    <i class="fa fa-eye-slash"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-sm confirmDelete" data-original-title="Delete">
+                                    <i class="fa fa-times"></i>
+                                </a>
                             </td>
                         </tr>
                         <tr>
                             <td>Technology</td>
                             <td>All related to the tech. All related to the tech. All related to the tech. All related to the tech. </td>
                             <td>Published</td>
-                            <td class="text-right">
-                                <a class="btn btn-grid btn-primary" href="#"><i class="fa fa-pencil"></i></a>
-                                <a class="btn btn-grid btn-success" href="#"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-grid btn-warning" href="#"><i class="fa fa-eye-slash"></i></a>
-                                <a class="btn btn-grid btn-danger confirmDelete" href="/deleteit"><i class="fa fa-times"></i></a>
+                            <td class="td-actions text-right">
+                                <a type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-sm" data-original-title="Edit">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-info btn-simple btn-sm" data-original-title="Publish">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-warning btn-simple btn-sm" data-original-title="Unpublish">
+                                    <i class="fa fa-eye-slash"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-sm confirmDelete" data-original-title="Delete">
+                                    <i class="fa fa-times"></i>
+                                </a>
                             </td>
                         </tr>
                         <tr>
                             <td>Technology</td>
                             <td>All related to the tech. All related to the tech. All related to the tech. All related to the tech. </td>
                             <td>Published</td>
-                            <td class="text-right">
-                                <a class="btn btn-grid btn-primary" href="#"><i class="fa fa-pencil"></i></a>
-                                <a class="btn btn-grid btn-success" href="#"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-grid btn-warning" href="#"><i class="fa fa-eye-slash"></i></a>
-                                <a class="btn btn-grid btn-danger confirmDelete" href="/deleteit"><i class="fa fa-times"></i></a>
+                            <td class="td-actions text-right">
+                                <a type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-sm" data-original-title="Edit">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-info btn-simple btn-sm" data-original-title="Publish">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-warning btn-simple btn-sm" data-original-title="Unpublish">
+                                    <i class="fa fa-eye-slash"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-sm confirmDelete" data-original-title="Delete">
+                                    <i class="fa fa-times"></i>
+                                </a>
                             </td>
                         </tr>
                         <tr>
                             <td>Technology</td>
                             <td>All related to the tech. All related to the tech. All related to the tech. All related to the tech. </td>
                             <td>Published</td>
-                            <td class="text-right">
-                                <a class="btn btn-grid btn-primary" href="#"><i class="fa fa-pencil"></i></a>
-                                <a class="btn btn-grid btn-success" href="#"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-grid btn-warning" href="#"><i class="fa fa-eye-slash"></i></a>
-                                <a class="btn btn-grid btn-danger confirmDelete" href="/deleteit"><i class="fa fa-times"></i></a>
+                            <td class="td-actions text-right">
+                                <a type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-sm" data-original-title="Edit">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-info btn-simple btn-sm" data-original-title="Publish">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-warning btn-simple btn-sm" data-original-title="Unpublish">
+                                    <i class="fa fa-eye-slash"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-sm confirmDelete" data-original-title="Delete">
+                                    <i class="fa fa-times"></i>
+                                </a>
                             </td>
                         </tr>
                         <tr>
                             <td>Technology</td>
                             <td>All related to the tech. All related to the tech. All related to the tech. All related to the tech. </td>
                             <td>Published</td>
-                            <td class="text-right">
-                                <a class="btn btn-grid btn-primary" href="#"><i class="fa fa-pencil"></i></a>
-                                <a class="btn btn-grid btn-success" href="#"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-grid btn-warning" href="#"><i class="fa fa-eye-slash"></i></a>
-                                <a class="btn btn-grid btn-danger confirmDelete" href="/deleteit"><i class="fa fa-times"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Technology</td>
-                            <td>All related to the tech. All related to the tech. All related to the tech. All related to the tech. </td>
-                            <td>Published</td>
-                            <td class="text-right">
-                                <a class="btn btn-grid btn-primary" href="#"><i class="fa fa-pencil"></i></a>
-                                <a class="btn btn-grid btn-success" href="#"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-grid btn-warning" href="#"><i class="fa fa-eye-slash"></i></a>
-                                <a class="btn btn-grid btn-danger confirmDelete" href="/deleteit"><i class="fa fa-times"></i></a>
+                            <td class="td-actions text-right">
+                                <a type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-sm" data-original-title="Edit">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-info btn-simple btn-sm" data-original-title="Publish">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-warning btn-simple btn-sm" data-original-title="Unpublish">
+                                    <i class="fa fa-eye-slash"></i>
+                                </a>
+                                <a type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-sm confirmDelete" data-original-title="Delete">
+                                    <i class="fa fa-times"></i>
+                                </a>
                             </td>
                         </tr>
                     </tbody>
