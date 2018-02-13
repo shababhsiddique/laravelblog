@@ -28,6 +28,10 @@ class AdminController extends Controller {
         $this->layout['adminNotification'] = view('admin.common.notification');
     }
 
+    /**
+     * Check Authentication Status
+     * @return type
+     */
     private function authCheck() {
         $id = Session::get('admin_id');
 
@@ -36,6 +40,10 @@ class AdminController extends Controller {
         }
     }
 
+    /**
+     * remove permissions from session
+     * @return type
+     */
     public function logout() {
         //Admin Logged In Session Flag
         Session::put('admin_loggedin', FALSE);
@@ -71,11 +79,10 @@ class AdminController extends Controller {
     }
 
     /**
-     * For testing purposes
+     * Categories
      * @return type
      */
     public function addCategory() {
-
 
         $this->authCheck();
 
@@ -107,6 +114,15 @@ class AdminController extends Controller {
 
 
         return Redirect::to('/dashboard/add-category');
+    }
+
+    public function listAllCategory() {
+
+        //Load Component        
+        $this->layout['adminContent'] = view('admin.partials.category_table');
+
+        //return view
+        return view('admin.master', $this->layout);
     }
 
     /**

@@ -31,8 +31,9 @@ Route::post('/adminverify', 'AdminLoginController@verify');
 Route::get('/adminlogout','AdminController@logout');
 Route::get('/dashboard', 'AdminController@index');
 
-Route::get('/dashboard/add-category', 'AdminController@addCategory');
+Route::get('/admin/add-category', 'AdminController@addCategory');
 Route::post('/save-category', 'AdminController@saveCategory');
+Route::get('/admin/list-category', 'AdminController@listAllCategory');
 
 Route::get('/test', 'AdminController@test');
 //Route::get('/dashboard', 'AdminController@adminLogin');

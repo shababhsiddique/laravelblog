@@ -5,24 +5,22 @@
         </a>
     </div>
     <div class="sidebar-wrapper">
-        <ul class="nav">
+        <ul class="nav navwithsidesub">
             <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
                 <a href="{{url('/admin')}}">
                     <i class="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li class="{{ Request::is('dashboard/add-category') ? 'active' : '' }}">
-                <a href="{{url('/dashboard/add-category')}}">
+            <li class="sidesub {{ (Request::is('admin/add-category')||Request::is('admin/list-category')) ? 'active open' : '' }}">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="material-icons">view_list</i>
-                    <p>Categories</p>
+                    <p>Manage Categories</p>
                 </a>
-            </li>
-            <li>
-                <a href="./table.html">
-                    <i class="material-icons">content_paste</i>
-                    <p>Table List</p>
-                </a>
+                <ul class="sidesub-ul dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="{{url('/admin/list-category')}}">List All</a></li>
+                    <li><a class="dropdown-item" href="{{url('/admin/add-category')}}">Create New</a></li>
+                </ul>  
             </li>
             <li>
                 <a href="./typography.html">

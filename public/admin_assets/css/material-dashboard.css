@@ -397,11 +397,11 @@ Copyright (c) 2015 Daniel Eden
     -ms-overflow-style: none;
 }
 
-@supports (-ms-overflow-style: none) {
+/*@supports (-ms-overflow-style:none) {
     .ps-container {
         overflow: auto !important;
     }
-}
+}*/
 
 @media screen and (-ms-high-contrast: active),
 (-ms-high-contrast: none) {
@@ -6763,7 +6763,7 @@ footer .btn {
     }
 }
 
-@media (max-width: 480px),
+/*@media (max-width: 480px),
 (max-width: 767px) {
     .form-group .form-control {
         width: 83%;
@@ -6771,7 +6771,7 @@ footer .btn {
     .navbar-form .form-group {
         margin-bottom: 0;
     }
-}
+}*/
 
 @media (min-width: 992px) {
     .table-full-width {
@@ -6828,24 +6828,90 @@ footer .btn {
     vertical-align: middle;
     display: block !important;
     font-weight:600 !important;
-    margin-top: 10px;
+    margin-top: 15px;
     color: #222 !important;
 
 }
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
 
     .custom-form-label{
-        text-align: right;
+        text-align: left;
     }
 }
 
 .form-input-custom{
-    border: 1px solid rgba(0,0,0,0.2) !important;
+    padding: 10px;
+    border: 1px solid #E0E0E0 !important;
     margin-top: 5px !important;
 }
 
 .form-group{
     padding-bottom: 0px;
     margin: 10px 0 0 0;
+}
+
+.sidesub ul{
+    width: 95%;
+    list-style: none;
+    margin-left: 5%;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+ul.sidesub-ul{
+    position: relative;
+
+    margin-bottom: 5px;
+}
+
+ul.sidesub-ul li a:before{
+    position: relative;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    content: "\f068";
+    margin-left: 10px;
+    right: 15px;
+    /*top: 30px;*/
+}
+
+ul.sidesub-ul li a{
+    box-shadow: none;
+    
+}
+
+
+ ul.sidesub-ul li a{
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14) !important;
+    background: white !important;    
+}
+
+ ul.sidesub-ul li a:hover{
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.20) !important;
+    background: #FAFAFA !important;
+}
+
+.navwithsidesub li.open a.dropdown-toggle{
+    color: white;
+    font-weight: bolder;
+    background-color: #9c27b0;
+    box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
+}
+.navwithsidesub li.open a.dropdown-toggle i{
+    color: white;
+}
+
+@media (min-width: 768px){
+    .modal-alert {
+        width: 500px;
+    }
+}
+
+.btn-grid{
+    padding: 5px 7px;
+    margin: 0px 7px 0px 0px;
 }

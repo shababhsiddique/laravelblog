@@ -10,7 +10,7 @@
             <div class="card-content">
                 <p class="category">Used Space</p>
                 <h3 class="title">49/50
-                    <small>GB<?php //print_r(system("wmic logicaldisk get size, freespace"))?></small>
+                    <small>GB<?php //print_r(system("wmic logicaldisk get size, freespace")) ?></small>
                 </h3>
             </div>
             <div class="card-footer">
@@ -385,5 +385,12 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        // Javascript method's body can be found in assets/js/demos.js
+        script.initDashboardPageCharts();
+    });
+</script>
 
 @endsection

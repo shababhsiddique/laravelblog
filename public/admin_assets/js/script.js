@@ -3,8 +3,9 @@ type = ['', 'info', 'success', 'warning', 'danger'];
 
 
 script = {
-    initPickColor: function() {
-        $('.pick-class-label').click(function() {
+
+    initPickColor: function () {
+        $('.pick-class-label').click(function () {
             var new_class = $(this).attr('new-class');
             var old_class = $('#display-buttons').attr('data-class');
             var display_div = $('#display-buttons');
@@ -17,8 +18,8 @@ script = {
         });
     },
 
-    initDocumentationCharts: function() {
-        /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
+    initDocumentationCharts: function () {
+
 
         dataDailySalesChart = {
             labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
@@ -26,7 +27,6 @@ script = {
                 [12, 17, 7, 17, 23, 18, 38]
             ]
         };
-
         optionsDailySalesChart = {
             lineSmooth: Chartist.Interpolation.cardinal({
                 tension: 0
@@ -42,23 +42,17 @@ script = {
         }
 
         var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
-
         md.startAnimationForLineChart(dailySalesChart);
     },
+    initDashboardPageCharts: function () {
 
-    initDashboardPageCharts: function() {
-        
         console.log("we are doing this");
-
-        /* ----------==========     Daily Sales Chart initialization    ==========---------- */
-
         dataDailySalesChart = {
             labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
             series: [
                 [12, 17, 7, 17, 23, 18, 38]
             ]
         };
-
         optionsDailySalesChart = {
             lineSmooth: Chartist.Interpolation.cardinal({
                 tension: 0
@@ -74,20 +68,13 @@ script = {
         }
 
         var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
-
         md.startAnimationForLineChart(dailySalesChart);
-
-
-
-        /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
-
         dataCompletedTasksChart = {
             labels: ['12am', '3pm', '6pm', '9pm', '12pm', '3am', '6am', '9am'],
             series: [
                 [230, 750, 450, 300, 280, 240, 200, 190]
             ]
         };
-
         optionsCompletedTasksChart = {
             lineSmooth: Chartist.Interpolation.cardinal({
                 tension: 0
@@ -103,13 +90,8 @@ script = {
         }
 
         var completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
-
         // start animation for the Completed Tasks Chart - Line Chart
         md.startAnimationForLineChart(completedTasksChart);
-
-
-        /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
-
         var dataEmailsSubscriptionChart = {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             series: [
@@ -132,128 +114,121 @@ script = {
         };
         var responsiveOptions = [
             ['screen and (max-width: 640px)', {
-                seriesBarDistance: 5,
-                axisX: {
-                    labelInterpolationFnc: function(value) {
-                        return value[0];
+                    seriesBarDistance: 5,
+                    axisX: {
+                        labelInterpolationFnc: function (value) {
+                            return value[0];
+                        }
                     }
-                }
-            }]
+                }]
         ];
         var emailsSubscriptionChart = Chartist.Bar('#emailsSubscriptionChart', dataEmailsSubscriptionChart, optionsEmailsSubscriptionChart, responsiveOptions);
-
         //start animation for the Emails Subscription Chart
         md.startAnimationForBarChart(emailsSubscriptionChart);
-
     },
-
-    initGoogleMaps: function() {
+    initGoogleMaps: function () {
         var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
         var mapOptions = {
             zoom: 13,
             center: myLatlng,
             scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
             styles: [{
-                "featureType": "water",
-                "stylers": [{
-                    "saturation": 43
+                    "featureType": "water",
+                    "stylers": [{
+                            "saturation": 43
+                        }, {
+                            "lightness": -11
+                        }, {
+                            "hue": "#0088ff"
+                        }]
                 }, {
-                    "lightness": -11
+                    "featureType": "road",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                            "hue": "#ff0000"
+                        }, {
+                            "saturation": -100
+                        }, {
+                            "lightness": 99
+                        }]
                 }, {
-                    "hue": "#0088ff"
-                }]
-            }, {
-                "featureType": "road",
-                "elementType": "geometry.fill",
-                "stylers": [{
-                    "hue": "#ff0000"
+                    "featureType": "road",
+                    "elementType": "geometry.stroke",
+                    "stylers": [{
+                            "color": "#808080"
+                        }, {
+                            "lightness": 54
+                        }]
                 }, {
-                    "saturation": -100
+                    "featureType": "landscape.man_made",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                            "color": "#ece2d9"
+                        }]
                 }, {
-                    "lightness": 99
-                }]
-            }, {
-                "featureType": "road",
-                "elementType": "geometry.stroke",
-                "stylers": [{
-                    "color": "#808080"
+                    "featureType": "poi.park",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                            "color": "#ccdca1"
+                        }]
                 }, {
-                    "lightness": 54
-                }]
-            }, {
-                "featureType": "landscape.man_made",
-                "elementType": "geometry.fill",
-                "stylers": [{
-                    "color": "#ece2d9"
-                }]
-            }, {
-                "featureType": "poi.park",
-                "elementType": "geometry.fill",
-                "stylers": [{
-                    "color": "#ccdca1"
-                }]
-            }, {
-                "featureType": "road",
-                "elementType": "labels.text.fill",
-                "stylers": [{
-                    "color": "#767676"
-                }]
-            }, {
-                "featureType": "road",
-                "elementType": "labels.text.stroke",
-                "stylers": [{
-                    "color": "#ffffff"
-                }]
-            }, {
-                "featureType": "poi",
-                "stylers": [{
-                    "visibility": "off"
-                }]
-            }, {
-                "featureType": "landscape.natural",
-                "elementType": "geometry.fill",
-                "stylers": [{
-                    "visibility": "on"
+                    "featureType": "road",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                            "color": "#767676"
+                        }]
                 }, {
-                    "color": "#b8cb93"
+                    "featureType": "road",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{
+                            "color": "#ffffff"
+                        }]
+                }, {
+                    "featureType": "poi",
+                    "stylers": [{
+                            "visibility": "off"
+                        }]
+                }, {
+                    "featureType": "landscape.natural",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                            "visibility": "on"
+                        }, {
+                            "color": "#b8cb93"
+                        }]
+                }, {
+                    "featureType": "poi.park",
+                    "stylers": [{
+                            "visibility": "on"
+                        }]
+                }, {
+                    "featureType": "poi.sports_complex",
+                    "stylers": [{
+                            "visibility": "on"
+                        }]
+                }, {
+                    "featureType": "poi.medical",
+                    "stylers": [{
+                            "visibility": "on"
+                        }]
+                }, {
+                    "featureType": "poi.business",
+                    "stylers": [{
+                            "visibility": "simplified"
+                        }]
                 }]
-            }, {
-                "featureType": "poi.park",
-                "stylers": [{
-                    "visibility": "on"
-                }]
-            }, {
-                "featureType": "poi.sports_complex",
-                "stylers": [{
-                    "visibility": "on"
-                }]
-            }, {
-                "featureType": "poi.medical",
-                "stylers": [{
-                    "visibility": "on"
-                }]
-            }, {
-                "featureType": "poi.business",
-                "stylers": [{
-                    "visibility": "simplified"
-                }]
-            }]
 
         }
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
         var marker = new google.maps.Marker({
             position: myLatlng,
             title: "Hello World!"
         });
-
         // To add the marker to the map, call setMap();
         marker.setMap(map);
     },
-
-    showNotification: function(from, align) {
+    showNotification: function (from, align) {
         color = Math.floor((Math.random() * 4) + 1);
-
         $.notify({
             icon: "notifications",
             message: "Welcome to <b>Material Dashboard</b> - a beautiful freebie for every web developer."
@@ -267,14 +242,12 @@ script = {
             }
         });
     },
-    
-    buildMessage: function(messageTitle, messageBody, messageType = 'info', defaultTimer = 1000) {
-        
+    buildMessage: function (messageTitle, messageBody, messageType = 'info', defaultTimer = 1000) {
+
         console.log("sup");
-        
         $.notify({
             icon: "notifications",
-            title: "<strong>"+messageTitle+"</strong>",
+            title: "<strong>" + messageTitle + "</strong>",
             message: messageBody
 
         }, {
@@ -286,7 +259,26 @@ script = {
             }
         });
     }
-
-
-
-}
+};
+$(document).on("click", ".confirmDelete", function (e) {
+    var link = $(this).attr("href"); // "get" the intended link in a var
+    e.preventDefault();
+    bootbox.confirm({
+        message: "<h4><strong>Are you sure you want to delete?</strong></h4>",
+        buttons: {
+            cancel: {
+                label: 'No, Dont delete',
+                className: 'btn-info'
+            },
+            confirm: {
+                label: 'Yes, I am sure',
+                className: 'btn-danger'
+            }
+        },
+        callback: function (result) {
+            if (result) {
+                document.location.href = link; // if result, "set" the document location       
+            }
+        }
+    });
+});

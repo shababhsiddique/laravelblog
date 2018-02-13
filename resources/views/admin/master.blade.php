@@ -23,6 +23,7 @@
         <!--   Core JS Files   -->
         <script src="{{asset('public/admin_assets/js/jquery-3.2.1.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('public/admin_assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('public/admin_assets/js/bootbox.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('public/admin_assets/js/material.min.js')}}" type="text/javascript"></script>
 
 
@@ -48,8 +49,9 @@
                     <div class="container-fluid">
 
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Home</a></li>
-                            <li class="breadcrumb-item active">{{Request::path()}}</li>
+                            <li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Dashboard</a></li>
+                            <!--<li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Dashboard</a></li>-->
+                            <li class="breadcrumb-item active"><a href="{{url(Request::path())}}">{{request()->segment(count(request()->segments()))}}</a></li>
                         </ol>
                         <!--notification start-->
                         @yield('adminNotification')
@@ -112,14 +114,7 @@
         <script type="text/javascript" src="{{asset('public/admin_assets/js/material-dashboard.js')}}"></script>
 
         <!-- Material Dashboard Init Scripts -->
-        <script src="{{asset('public/admin_assets/js/script.js')}}"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-
-            // Javascript method's body can be found in assets/js/demos.js
-            script.initDashboardPageCharts();
-            });
-        </script>
+        <script src="{{asset('public/admin_assets/js/script.js')}}"></script>        
 
 
 
