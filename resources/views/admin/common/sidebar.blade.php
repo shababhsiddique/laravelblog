@@ -12,7 +12,7 @@
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li class="sidesub {{ (Request::is('admin/add-category')||Request::is('admin/list-category')) ? 'active open' : '' }}">
+            <li class="sidesub {{ (Request::is('admin/add-category')||Request::is('admin/list-category')||Request::is('admin/edit-category/*')) ? 'active open' : '' }}">
                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="material-icons">view_list</i>
                     <p>Manage Categories</p>
@@ -22,11 +22,15 @@
                     <li><a class="dropdown-item" href="{{url('/admin/add-category')}}">Create New</a></li>
                 </ul>  
             </li>
-            <li>
-                <a href="./typography.html">
-                    <i class="material-icons">library_books</i>
-                    <p>Typography</p>
+            <li class="sidesub {{ Request::is('admin/new-article') ? 'active open' : '' }}">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons">view_list</i>
+                    <p>Manage Articles</p>
                 </a>
+                <ul class="sidesub-ul dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="{{url('/admin/list-articles')}}">List All</a></li>
+                    <li><a class="dropdown-item" href="{{url('/admin/new-article')}}">New Article</a></li>
+                </ul>  
             </li>
             <li>
                 <a href="./icons.html">

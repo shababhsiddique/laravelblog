@@ -78,6 +78,10 @@ class AdminController extends Controller {
         return view('admin.master', $this->layout);
     }
 
+    /*     * *
+     * Category Management Start
+     */
+
     /**
      * Categories
      * @return type
@@ -113,17 +117,181 @@ class AdminController extends Controller {
         ));
 
 
-        return Redirect::to('/dashboard/add-category');
+        return Redirect::to('/admin/add-category');
     }
 
     public function listAllCategory() {
 
+        $this->authCheck();
+
+        $results = DB::table("category")->get();
+
+
         //Load Component        
-        $this->layout['adminContent'] = view('admin.partials.category_table');
+        $this->layout['adminContent'] = view('admin.partials.category_table')
+                ->with('allCategories', $results);
+
+
+        return view('admin.master', $this->layout);
+    }
+
+    /**
+     * Delete Category By ID
+     * @param type $id
+     */
+    public function deleteCategory($id) {
+
+        $this->authCheck();
+
+        DB::table("category")
+                ->where("category_id", $id)
+                ->delete();
+
+        //Message for Notification Builder
+        Session::put('message', array(
+            'title' => 'Deleted Category',
+            'body' => 'Category forever removed from Database',
+            'type' => 'success'
+        ));
+
+
+        return Redirect::to('/admin/list-category');
+    }
+
+    /**
+     * Change Status of this tag
+     * @param type $status
+     * @param type $id
+     * @return type
+     */
+    public function changeCategoryStatus($status, $id) {
+
+        $this->authCheck();
+
+        DB::table("category")
+                ->where("category_id", $id)
+                ->update(['publication_status' => $status]);
+
+
+        if ($status == 0) {
+            //Message for Notification Builder
+            Session::put('message', array(
+                'title' => 'Updated Category Status to unpublished',
+                'body' => 'This tag will be invisible',
+                'type' => 'warning'
+            ));
+        } else {
+            //Message for Notification Builder
+            Session::put('message', array(
+                'title' => 'Updated Category Status to published',
+                'body' => 'This tag is now visible',
+                'type' => 'info'
+            ));
+        }
+
+
+
+        return Redirect::to('/admin/list-category');
+    }
+
+    /**
+     * Edit Category
+     * @param type $category_id
+     */
+    public function editCategory($category_id) {
+
+        $this->authCheck();
+
+        $oldCatData = DB::table("category")
+                ->where("category_id", $category_id)
+                ->first();
+
+        //Load Component        
+        $this->layout['adminContent'] = view('admin.partials.category_editform')
+                ->with('oldCategoryData', $oldCatData);
 
         //return view
         return view('admin.master', $this->layout);
     }
+
+    public function updateCategory(Request $request) {
+
+        $this->authCheck();
+        $data = array();
+
+        $data['category_name'] = $request->category_name;
+        $data['category_description'] = $request->category_description;
+
+
+        DB::table("category")
+                ->where("category_id", $request->category_id)
+                ->update($data);
+
+
+        //Message for Notification Builder
+        Session::put('message', array(
+            'title' => 'Created Updated',
+            'body' => $request->category_name . ' Updated Successfully',
+            'type' => 'success'
+        ));
+
+
+        return Redirect::to('/admin/list-category');
+    }
+
+    /**
+     * Category Management End
+     * 
+     * 
+     * 
+     */
+    /**
+     * Post Management Start
+     */
+
+    /**
+     * Write new post
+     */
+    public function newArticle() {
+
+        $this->authCheck();
+
+        $listCategories = DB::table("category")->get();
+        
+        //Load Component        
+        $this->layout['adminContent'] = view('admin.partials.article_form')
+                ->with('listCategories',$listCategories);
+
+        //return view
+        return view('admin.master', $this->layout);
+    }
+
+    public function saveArticle(Request $request) {
+
+        $this->authCheck();
+        $data = array();
+
+        $data['category_name'] = $request->category_name;
+        $data['category_description'] = $request->category_description;
+        $data['publication_status'] = $request->publication_status;
+
+        DB::table('category')->insert($data);
+
+
+        //Message for Notification Builder
+        Session::put('message', array(
+            'title' => 'Created Category',
+            'body' => 'Created new category',
+            'type' => 'success'
+        ));
+
+
+        return Redirect::to('/admin/add-category');
+    }
+
+    /**
+     * Post Management End
+     */
 
     /**
      * For testing purposes
