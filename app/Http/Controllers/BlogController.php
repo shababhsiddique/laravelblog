@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Article;
+use App\Models\Category;
 
 class BlogController extends Controller {
 
@@ -19,7 +21,7 @@ class BlogController extends Controller {
 
         //Initialize Sidebar Contents
         $this->layout['sidebar'] = view('layouts.sidebar', [
-            "msg" => "Custom Sidebar Msg"
+            "categories" => Category::where("publication_status", 1)->get()
         ]);
     }
 
@@ -30,7 +32,12 @@ class BlogController extends Controller {
         
     public function index() {
 
-        $this->layout['main_content'] = view('pages.index');
+        $articles = Article::where("deletion_status", 0)
+                ->where("publication_status", 1)
+                ->get();
+                
+        $this->layout['main_content'] = view('pages.index')
+                ->with('allArticles', $articles);
 
         return view('layouts.master', $this->layout);
     }
@@ -53,18 +60,13 @@ class BlogController extends Controller {
      */
     public function post($postId) {
         
-        $this->layout['main_content'] = view('pages.viewpost');
+        $article = Article::find($postId);
+        
+        $this->layout['main_content'] = view('pages.viewpost')
+                ->with("article",$article);
 
         return view('layouts.master', $this->layout);
 
-//        $main = view("blog.viewpost");
-//        $sidebar = view('sidebar', [
-//            "msg" => "Custom Sidebar Msg"
-//        ]);
-//
-//        return view('master')
-//                        ->with("mainC", $main)
-//                        ->with("sidebar", $sidebar);
     }
 
     

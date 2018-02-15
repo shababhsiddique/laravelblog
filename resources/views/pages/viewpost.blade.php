@@ -6,13 +6,15 @@
     <!--Post-->
     <div class="post-wrapper ">
         <!--Post data-->
-        <h1 class="h1-responsive dark-grey-text font-bold">Post title
-            <small class="text-muted">Secondary text</small>
+        <h1 class="h1-responsive dark-grey-text font-bold">{{$article->article_title}}            
         </h1>
         <h6>Written by
-            <a href="">
-                <strong>John Doe</strong>
-            </a>, 30.04.2016</h6>
+                <a href="">
+                    <strong>Admin</strong>
+                </a> in 
+                <a href="{{$article->category->category_name}}">
+                    <strong>{{$article->category->category_name}}</strong>
+                </a>, {{$article->created_at}}</h6>
 
         <br>
 
@@ -26,14 +28,7 @@
         <br>
 
         <!--Post Full-->
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, officia omnis. Vero nihil neque dignissimos
-            hic voluptas quisquam amet porro, similique libero ullam veritatis tempora cumque voluptates
-            harum. Repellendus, impedit.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, officia omnis. Vero nihil neque dignissimos
-            hic voluptas quisquam amet porro, similique libero ullam veritatis tempora cumque voluptates
-            harum. Repellendus, impedit.</p>
-
+        <p>{!!$article->article_body!!}</p>
 
         <hr/>
 
