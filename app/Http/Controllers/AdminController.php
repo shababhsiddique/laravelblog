@@ -3,27 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
 use Session;
 use Illuminate\Support\Facades\Redirect;
-use App\Article;
+use App\Models\Article;
+use App\Models\Category;
 
 session_start();
 
 class AdminController extends Controller {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     //View Components Holder
     private $layout;
 
     public function __construct() {
-
-
-
 
         //Initialize Notifications View
         $this->layout['adminNotification'] = view('admin.common.notification');
@@ -101,13 +94,14 @@ class AdminController extends Controller {
     public function saveCategory(Request $request) {
 
         $this->authCheck();
-        $data = array();
 
-        $data['category_name'] = $request->category_name;
-        $data['category_description'] = $request->category_description;
-        $data['publication_status'] = $request->publication_status;
+        $category = new Category;
 
-        DB::table('category')->insert($data);
+        $category->category_name = $request->category_name;
+        $category->category_description = $request->category_description;
+        $category->publication_status = $request->publication_status;
+
+        $category->save();
 
 
         //Message for Notification Builder
@@ -129,7 +123,7 @@ class AdminController extends Controller {
 
         $this->authCheck();
 
-        $results = DB::table("category")->get();
+        $results = Category::all();
 
 
         //Load Component        
@@ -148,9 +142,9 @@ class AdminController extends Controller {
 
         $this->authCheck();
 
-        DB::table("category")
-                ->where("category_id", $id)
-                ->delete();
+        $category = Category::find($id);
+        $category->delete();
+
 
         //Message for Notification Builder
         Session::put('message', array(
@@ -173,9 +167,9 @@ class AdminController extends Controller {
 
         $this->authCheck();
 
-        DB::table("category")
-                ->where("category_id", $id)
-                ->update(['publication_status' => $status]);
+        $category = Category::find($id);
+        $category->publication_status = $status;
+        $category->save();
 
 
         if ($status == 0) {
@@ -207,9 +201,7 @@ class AdminController extends Controller {
 
         $this->authCheck();
 
-        $oldCatData = DB::table("category")
-                ->where("category_id", $category_id)
-                ->first();
+        $oldCatData = Category::find($category_id);
 
         //Load Component        
         $this->layout['adminContent'] = view('admin.partials.category_editform')
@@ -222,15 +214,13 @@ class AdminController extends Controller {
     public function updateCategory(Request $request) {
 
         $this->authCheck();
-        $data = array();
+        
+        $category = Category::find($request->category_id);
 
-        $data['category_name'] = $request->category_name;
-        $data['category_description'] = $request->category_description;
+        $category->category_name = $request->category_name;
+        $category->category_description = $request->category_description;
 
-
-        DB::table("category")
-                ->where("category_id", $request->category_id)
-                ->update($data);
+        $category->save();
 
 
         //Message for Notification Builder
@@ -250,8 +240,6 @@ class AdminController extends Controller {
      * 
      * 
      */
-    
-    
     /**
      * Article Management Start
      */
@@ -263,7 +251,7 @@ class AdminController extends Controller {
 
         $this->authCheck();
 
-        $listCategories = DB::table("category")->get();
+        $listCategories = Category::all();
 
         //Load Component        
         $this->layout['adminContent'] = view('admin.partials.article_form')
@@ -282,7 +270,7 @@ class AdminController extends Controller {
 
         $this->authCheck();
 
-        $listCategories = DB::table("category")->get();
+        $listCategories = Category::all();
         $oldArticleData = Article::find($article_id);
 
         //Load Component        
@@ -304,7 +292,7 @@ class AdminController extends Controller {
         $this->authCheck();
 
         if (isset($request->article_id)) {
-            
+
             //Its Update
             $article = Article::find($request->article_id);
 
@@ -312,11 +300,10 @@ class AdminController extends Controller {
             Session::put('message', array(
                 'title' => 'Updated Article',
                 'body' => "Article has been updated",
-                'type' => 'success'
+                'type' => 'info'
             ));
-            
         } else {
-            
+
             //Its new
             $article = new Article;
 
@@ -340,7 +327,6 @@ class AdminController extends Controller {
 
         return Redirect::to('/admin/list-articles');
     }
-    
 
     /**
      * List Articles Grid

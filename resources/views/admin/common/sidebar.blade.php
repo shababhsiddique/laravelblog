@@ -22,7 +22,7 @@
                     <li><a class="dropdown-item" href="{{url('/admin/add-category')}}">Create New</a></li>
                 </ul>  
             </li>
-            <li class="sidesub {{ ( Request::is('admin/new-article')|| Request::is('admin/list-articles')) ? 'active open' : '' }}">
+            <li class="sidesub {{ ( Request::is('admin/new-article') || Request::is('admin/edit-article/*') || Request::is('admin/list-articles')) ? 'active open' : '' }}">
                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="material-icons">view_list</i>
                     <p>Manage Articles</p>
