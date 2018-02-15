@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use Illuminate\Support\Facades\Redirect;
+use App\Article;
 
 session_start();
 
@@ -120,6 +121,10 @@ class AdminController extends Controller {
         return Redirect::to('/admin/add-category');
     }
 
+    /**
+     * View All Categories
+     * @return type
+     */
     public function listAllCategory() {
 
         $this->authCheck();
@@ -178,7 +183,7 @@ class AdminController extends Controller {
             Session::put('message', array(
                 'title' => 'Updated Category Status to unpublished',
                 'body' => 'This tag will be invisible',
-                'type' => 'warning'
+                'type' => 'info'
             ));
         } else {
             //Message for Notification Builder
@@ -245,52 +250,191 @@ class AdminController extends Controller {
      * 
      * 
      */
+    
+    
     /**
-     * Post Management Start
+     * Article Management Start
      */
 
     /**
-     * Write new post
+     * Write new Article
      */
     public function newArticle() {
 
         $this->authCheck();
 
         $listCategories = DB::table("category")->get();
-        
+
         //Load Component        
         $this->layout['adminContent'] = view('admin.partials.article_form')
-                ->with('listCategories',$listCategories);
+                ->with('listCategories', $listCategories);
 
         //return view
         return view('admin.master', $this->layout);
     }
 
-    public function saveArticle(Request $request) {
+    /**
+     * Edit Article
+     * @param type $article_id
+     * @return type
+     */
+    public function editArticle($article_id) {
 
         $this->authCheck();
-        $data = array();
 
-        $data['category_name'] = $request->category_name;
-        $data['category_description'] = $request->category_description;
-        $data['publication_status'] = $request->publication_status;
+        $listCategories = DB::table("category")->get();
+        $oldArticleData = Article::find($article_id);
 
-        DB::table('category')->insert($data);
+        //Load Component        
+        $this->layout['adminContent'] = view('admin.partials.article_form')
+                ->with('listCategories', $listCategories)
+                ->with('oldArticleData', $oldArticleData);
 
-
-        //Message for Notification Builder
-        Session::put('message', array(
-            'title' => 'Created Category',
-            'body' => 'Created new category',
-            'type' => 'success'
-        ));
-
-
-        return Redirect::to('/admin/add-category');
+        //return view
+        return view('admin.master', $this->layout);
     }
 
     /**
-     * Post Management End
+     * Common Add/Update submit function
+     * @param Request $request
+     * @return type
+     */
+    public function saveArticle(Request $request) {
+
+        $this->authCheck();
+
+        if (isset($request->article_id)) {
+            
+            //Its Update
+            $article = Article::find($request->article_id);
+
+            //Message for Notification Builder
+            Session::put('message', array(
+                'title' => 'Updated Article',
+                'body' => "Article has been updated",
+                'type' => 'success'
+            ));
+            
+        } else {
+            
+            //Its new
+            $article = new Article;
+
+            //Message for Notification Builder
+            Session::put('message', array(
+                'title' => 'Created New Article',
+                'body' => "Article has been created",
+                'type' => 'success'
+            ));
+        }
+
+        $article->article_title = $request->article_title;
+        $article->article_body = $request->article_body;
+        $article->article_slug = $request->article_slug;
+        $article->category_id = $request->category_id;
+        $article->publication_status = $request->publication_status;
+
+        $article->deletion_status = 0;
+
+        $article->save();
+
+        return Redirect::to('/admin/list-articles');
+    }
+    
+
+    /**
+     * List Articles Grid
+     * @return type
+     */
+    public function listAllArticle() {
+
+        $this->authCheck();
+
+        $listArticles = Article::where("deletion_status", 0)->get();
+
+        $dltdArticles = Article::where("deletion_status", 1)->get();
+
+        //Load Component        
+        $this->layout['adminContent'] = view('admin.partials.article_table')
+                ->with('allArticles', $listArticles)
+                ->with('deletedArticles', $dltdArticles);
+
+
+        return view('admin.master', $this->layout);
+    }
+
+    /**
+     * 
+     * @param type $status
+     * @param type $id
+     * @return type
+     */
+    public function changeArticleStatus($status, $id) {
+
+        $this->authCheck();
+
+
+        switch ($status) {
+            case "del":
+
+                $article = Article::find($id);
+                $article->deletion_status = 1;
+                $article->save();
+
+                //Message for Notification Builder
+                Session::put('message', array(
+                    'title' => 'Deleted Article',
+                    'body' => 'Article moved to trash',
+                    'type' => 'info'
+                ));
+                break;
+            case "rec":
+
+                $article = Article::find($id);
+                $article->deletion_status = 0;
+                $article->save();
+
+
+                //Message for Notification Builder
+                Session::put('message', array(
+                    'title' => 'Article Restored',
+                    'body' => 'Article moved back from trash',
+                    'type' => 'info'
+                ));
+                break;
+            case "pub":
+
+                $article = Article::find($id);
+                $article->publication_status = 1;
+                $article->save();
+
+                //Message for Notification Builder
+                Session::put('message', array(
+                    'title' => 'Updated Article Status to published',
+                    'body' => 'This article is now visible',
+                    'type' => 'info'
+                ));
+                break;
+            default:
+
+                $article = Article::find($id);
+                $article->publication_status = 0;
+                $article->save();
+
+                //Message for Notification Builder
+                Session::put('message', array(
+                    'title' => 'Updated Article Status to unpublished',
+                    'body' => 'This article will be invisible',
+                    'type' => 'info'
+                ));
+                break;
+        }
+
+        return Redirect::to('/admin/list-articles');
+    }
+
+    /**
+     * Article Management End
      */
 
     /**

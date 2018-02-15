@@ -5,26 +5,36 @@
     <div class=" col-lg-9">
         <div class="card">
             <div class="card-header" data-background-color="green">
-                <h4 class="title">Post New Article</h4>
-                <p class="category">create new article for blog</p>
+                @if(isset($oldArticleData))
+                <h4 class="title">Edit Article</h4>
+                <p class="category">Change old article data</p>
+                @else
+                <h4 class="title">New Article</h4>
+                <p class="category">Write an article for the blog</p>
+                @endif
             </div>
             <div class="card-content">
-                {!! Form::open(['url' => 'save-post','method' => 'post']) !!}
+                @if(isset($oldArticleData))
+                {!! Form::model($oldArticleData,['url' => 'save-article','method' => 'post']) !!}
+                <input type="hidden" name="article_id" value="{{$oldArticleData->article_id}}" />
+                @else
+                {!! Form::open(['url' => 'save-article','method' => 'post']) !!}
+                @endif
                 <div class="row form-group is-focused">
                     <div class="col-sm-3">
-                        <label class="custom-form-label">Article Name</label>
+                        {!! Form::label('article_title', 'Article Title',['class' => 'custom-form-label']) !!}
                     </div>
                     <div class="col-sm-9">
-                        <input placeholder="Someday I will master Laravel" autofocus="" name="article_title" type="text" class="form-control form-input-custom">
+                        {!! Form::text('article_title', null, ['class' => 'form-control form-input-custom','placeholder'=>"Someday I will master Laravel"]) !!}
                         <strong>Human readable name</strong>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-3">
-                        <label class="custom-form-label">Article URL friendly Name</label>
+                        {!! Form::label('article_slug', 'Article URL friendly name',['class' => 'custom-form-label']) !!}
                     </div>
                     <div class="col-sm-6">
-                        <input placeholder="someday-i-will-master-laravel" name="article_slug" type="text" class="form-control form-input-custom">
+                        {!! Form::text('article_slug', null, ['class' => 'form-control form-input-custom','placeholder'=>"someday-i-will-master-laravel"]) !!}
                         <strong>No space or special characters, e.g: your-post-title</strong>
                     </div>
                 </div>
@@ -34,35 +44,47 @@
                         <label class="custom-form-label"></label>
                     </div>
                     <div class="col-sm-9">
-                        <textarea style="min-height: 200px" name="article_body" class="form-control form-input-custom" rows="10"></textarea>
-                        
+                        {!! Form::textarea('article_body', null, ['class' => 'form-control form-input-custom','rows'=>'10']) !!}
+
                         <script src="{{asset('public/admin_assets/js/nicEdit-latest.js')}}" type="text/javascript"></script>
                         <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
-
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-3">
-                        <label class="custom-form-label">Article Category</label>
+                        {!! Form::label('category_id', 'Article Category',['class' => 'custom-form-label']) !!}
                     </div>
                     <div class="col-sm-3">
-                        <select name="category_id" class="form-control form-input-custom">
-                            <?php foreach($listCategories as $aCategory) { ?>
-                            <option value="{{$aCategory->category_id}}">{{$aCategory->category_name}}</option>
-                            <?php } ?>
-                        </select>
+                        <?php
+                        $cat = [];
+                        foreach ($listCategories as $aCategory) {
+                            $cat[$aCategory->category_id] = $aCategory->category_name;
+                        }
+                        ?>
+                        @if(isset($oldArticleData))
+                        {{ Form::select('category_id', $cat, $oldArticleData->category_id, ['class' => 'form-control form-input-custom']) }}
+                        @else
+                        {{ Form::select('category_id', $cat, null, ['class' => 'form-control form-input-custom']) }}
+                        @endif
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <div class="col-sm-3">
-                        <label class="custom-form-label">Publication Status</label>
+                        {!! Form::label('publication_status', 'Status',['class' => 'custom-form-label']) !!}
                     </div>
                     <div class="col-sm-3">
-                        <select name="publication_status" class="form-control form-input-custom">
-                            <option value="1">Published</option>
-                            <option value="0">Unpublished</option>
-                        </select>
+                        <?php
+                        $publicationOptions = [
+                            0 => "Unpublished",
+                            1 => "Published"
+                        ];                        
+                        ?>
+                        @if(isset($oldArticleData))
+                        {{ Form::select('publication_status', $publicationOptions, $oldArticleData->publication_status, ['class' => 'form-control form-input-custom']) }}
+                        @else
+                        {{ Form::select('publication_status', $publicationOptions, 1, ['class' => 'form-control form-input-custom']) }}
+                        @endif
                     </div>
                 </div>
                 <div class="row form-group">

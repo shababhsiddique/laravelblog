@@ -47,6 +47,12 @@ Route::post('/update-category', 'AdminController@updateCategory');
 
 /* Post Management */
 Route::get('/admin/new-article', 'AdminController@newArticle');
+Route::post('/save-article', 'AdminController@saveArticle');
+
+Route::get('/admin/list-articles', 'AdminController@listAllArticle');
+
+Route::get('/admin/changestatus-article/{status}/{id}', 'AdminController@changeArticleStatus');
+Route::get('/admin/edit-article/{id}', 'AdminController@editArticle');
 
 
 Route::get('/test', 'AdminController@test');

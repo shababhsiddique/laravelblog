@@ -51,7 +51,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Admin</a></li>
                             <!--<li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Dashboard</a></li>-->
-                            <li class="breadcrumb-item active"><a href="{{url(Request::path())}}">{{request()->segment(count(request()->segments()))}}</a></li>
+                            <li class="breadcrumb-item active"><a href="{{url(Request::path())}}">{{Request::path()}}</a></li>
                         </ol>
                         <!--notification start-->
                         @yield('adminNotification')
