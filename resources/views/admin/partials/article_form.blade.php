@@ -78,7 +78,7 @@
                         $publicationOptions = [
                             0 => "Unpublished",
                             1 => "Published"
-                        ];                        
+                        ];
                         ?>
                         @if(isset($oldArticleData))
                         {{ Form::select('publication_status', $publicationOptions, $oldArticleData->publication_status, ['class' => 'form-control form-input-custom']) }}
@@ -89,10 +89,9 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-9 col-sm-offset-3">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Create</button>                        
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save</button>
                     </div>
                 </div>
-
 
                 {!! Form::close() !!}
 
