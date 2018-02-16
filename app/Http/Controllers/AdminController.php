@@ -337,9 +337,13 @@ class AdminController extends Controller {
 
         $this->authCheck();
 
-        $listArticles = Article::where("deletion_status", 0)->get();
+        $listArticles = Article::where("deletion_status", 0)
+                ->orderBy('created_at', 'DESC')
+                ->get();
 
-        $dltdArticles = Article::where("deletion_status", 1)->get();
+        $dltdArticles = Article::where("deletion_status", 1)
+                ->orderBy('updated_at', 'DESC')
+                ->get();
 
         //Load Component        
         $this->layout['adminContent'] = view('admin.partials.article_table')

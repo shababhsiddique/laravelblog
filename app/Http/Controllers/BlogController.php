@@ -34,6 +34,7 @@ class BlogController extends Controller {
 
         $articles = Article::where("deletion_status", 0)
                 ->where("publication_status", 1)
+                ->orderBy('created_at', 'DESC')
                 ->get();
                 
         $this->layout['main_content'] = view('pages.index')
