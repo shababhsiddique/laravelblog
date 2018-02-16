@@ -3487,7 +3487,7 @@ select.form-control[multiple],
 }
 
 .table .td-actions .btn {
-    margin: 0px;
+    margin: 0px 5px;
     padding: 5px;
 }
 
@@ -6857,6 +6857,10 @@ footer .btn {
     background: transparent;
     border: none;
     box-shadow: none;
+}
+
+ul.dropdown-menu{
+    background-color: whitesmoke;
 }
 
 ul.sidesub-ul{

@@ -15,125 +15,45 @@
                         <tr>
                             <th>Name</th>
                             <th>Description</th>
-                            <th>Status</th>
+                            <th style="width: 200px">Status</th>
                             <th style="width: 130px"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Technology</td>
-                            <td>All related to the tech. All related to the tech. All related to the tech. All related to the tech. </td>
-                            <td>Published</td>
-                            <td class="td-actions text-right">
-                                <a type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-sm" data-original-title="Edit">
-                                    <i class="fa fa-pencil"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-info btn-simple btn-sm" data-original-title="Publish">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-warning btn-simple btn-sm" data-original-title="Unpublish">
-                                    <i class="fa fa-eye-slash"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-sm confirmDelete" data-original-title="Delete">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Technology</td>
-                            <td>All related to the tech. All related to the tech. All related to the tech. All related to the tech. </td>
-                            <td>Published</td>
-                            <td class="td-actions text-right">
-                                <a type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-sm" data-original-title="Edit">
-                                    <i class="fa fa-pencil"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-info btn-simple btn-sm" data-original-title="Publish">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-warning btn-simple btn-sm" data-original-title="Unpublish">
-                                    <i class="fa fa-eye-slash"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-sm confirmDelete" data-original-title="Delete">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Technology</td>
-                            <td>All related to the tech. All related to the tech. All related to the tech. All related to the tech. </td>
-                            <td>Published</td>
-                            <td class="td-actions text-right">
-                                <a type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-sm" data-original-title="Edit">
-                                    <i class="fa fa-pencil"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-info btn-simple btn-sm" data-original-title="Publish">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-warning btn-simple btn-sm" data-original-title="Unpublish">
-                                    <i class="fa fa-eye-slash"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-sm confirmDelete" data-original-title="Delete">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Technology</td>
-                            <td>All related to the tech. All related to the tech. All related to the tech. All related to the tech. </td>
-                            <td>Published</td>
-                            <td class="td-actions text-right">
-                                <a type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-sm" data-original-title="Edit">
-                                    <i class="fa fa-pencil"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-info btn-simple btn-sm" data-original-title="Publish">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-warning btn-simple btn-sm" data-original-title="Unpublish">
-                                    <i class="fa fa-eye-slash"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-sm confirmDelete" data-original-title="Delete">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Technology</td>
-                            <td>All related to the tech. All related to the tech. All related to the tech. All related to the tech. </td>
-                            <td>Published</td>
-                            <td class="td-actions text-right">
-                                <a type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-sm" data-original-title="Edit">
-                                    <i class="fa fa-pencil"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-info btn-simple btn-sm" data-original-title="Publish">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-warning btn-simple btn-sm" data-original-title="Unpublish">
-                                    <i class="fa fa-eye-slash"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-sm confirmDelete" data-original-title="Delete">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Technology</td>
-                            <td>All related to the tech. All related to the tech. All related to the tech. All related to the tech. </td>
-                            <td>Published</td>
-                            <td class="td-actions text-right">
-                                <a type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-sm" data-original-title="Edit">
-                                    <i class="fa fa-pencil"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-info btn-simple btn-sm" data-original-title="Publish">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-warning btn-simple btn-sm" data-original-title="Unpublish">
-                                    <i class="fa fa-eye-slash"></i>
-                                </a>
-                                <a type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-sm confirmDelete" data-original-title="Delete">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </td>
-                        </tr>
+                        <?php foreach ($allCategories as $aCategory) { ?>
+                            <tr>
+                                <td>{{$aCategory->category_name}}</td>
+                                <td>{{$aCategory->category_description}}</td>
+                                <td>
+                                    @if ($aCategory->publication_status == 0)
+                                    <i class="fa fa-eye-slash text-warning"></i> Unpublished
+                                    @else
+                                    <i class="fa fa-eye text-success"></i> Published
+                                    @endif
+                                </td>
+                                <td class="td-actions text-right">
+                                    
+                                    <a href="{{url('/admin/edit-category/'.$aCategory->category_id)}}" type="button" rel="tooltip" title="" class="btn btn-primary btn-sm" data-original-title="Edit">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                    
+                                    <!--Show thumbs up button if unpublished,--> 
+                                    @if ($aCategory->publication_status == 0)
+                                    <a href="{{url('/admin/changestatus-category/1/'.$aCategory->category_id)}}" type="button" rel="tooltip" title="" class="btn btn-success btn-sm" data-original-title="Publish">
+                                        <i class="fa fa-thumbs-up"></i>
+                                    </a>
+                                    @else
+                                    <a href="{{url('/admin/changestatus-category/0/'.$aCategory->category_id)}}" type="button" rel="tooltip" title="" class="btn btn-warning btn-sm" data-original-title="Unpublish">
+                                        <i class="fa fa-thumbs-down"></i>
+                                    </a>
+                                    @endif
+
+                                    <a href="{{url('/admin/delete-category/'.$aCategory->category_id)}}" type="button" rel="tooltip" title="" class="btn btn-danger btn-sm confirmDelete" data-original-title="Delete">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php } ?>                        
                     </tbody>
                 </table>
             </div>

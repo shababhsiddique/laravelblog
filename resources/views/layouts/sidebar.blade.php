@@ -5,27 +5,14 @@
 <div class="col-lg-4 z-depth-1" style="padding-top: 20px">
     <div class="widget-wrapper wow fadeIn" data-wow-delay="0.4s">
 
-        <h5>{{$msg}}</h5>
-        <hr/>
-
         <h5>Categories</h5>
         <hr/>
         <div class="row">
-            <div class="list-group list-group-flush col-md-6">
-                <a href="#" class="list-group-item border-0 waves-effect waves-classic">Lifestyle  <span class="badge badge-primary badge-pill">10</span></a>
-                <a href="#" class="list-group-item border-0 waves-effect waves-classic">Music <span class="badge badge-primary badge-pill">14</span></a>
-                <a href="#" class="list-group-item border-0 waves-effect waves-classic">Travels <span class="badge badge-primary badge-pill">17</span></a>
-                <a href="#" class="list-group-item border-0 waves-effect waves-classic">Fashion <span class="badge badge-primary badge-pill">8</span></a>
-                <a href="#" class="list-group-item border-0 waves-effect waves-classic">Parties <span class="badge badge-primary badge-pill">34</span></a>
+            <div class="list-group list-group-flush col-md-12">
+                <?php foreach ($categories as $aCategory) { ?>
+                    <a href="{{url('category').'/'.$aCategory->category_id}}" class="list-group-item border-0 waves-effect waves-classic">{{$aCategory->category_name}} </a>
+                <?php } ?>
             </div>
-            <div class="list-group list-group-flush col-md-6">
-                <a href="#" class="list-group-item border-0 waves-effect waves-classic">Lifestyle  <span class="badge badge-primary badge-pill">10</span></a>
-                <a href="#" class="list-group-item border-0 waves-effect waves-classic">Music <span class="badge badge-primary badge-pill">14</span></a>
-                <a href="#" class="list-group-item border-0 waves-effect waves-classic">Travels <span class="badge badge-primary badge-pill">17</span></a>
-                <a href="#" class="list-group-item border-0 waves-effect waves-classic">Fashion <span class="badge badge-primary badge-pill">8</span></a>
-                <a href="#" class="list-group-item border-0 waves-effect waves-classic">Parties <span class="badge badge-primary badge-pill">34</span></a>
-            </div>
-
         </div>
     </div>
 

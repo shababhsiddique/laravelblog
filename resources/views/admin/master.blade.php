@@ -49,9 +49,9 @@
                     <div class="container-fluid">
 
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Admin</a></li>
                             <!--<li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Dashboard</a></li>-->
-                            <li class="breadcrumb-item active"><a href="{{url(Request::path())}}">{{request()->segment(count(request()->segments()))}}</a></li>
+                            <li class="breadcrumb-item active"><a href="{{url(Request::path())}}">{{Request::path()}}</a></li>
                         </ol>
                         <!--notification start-->
                         @yield('adminNotification')
@@ -109,6 +109,7 @@
         <script type="text/javascript" src="{{asset('public/admin_assets/js/perfect-scrollbar.jquery.min.js')}}"></script>
         <!--  Notifications Plugin    -->
         <script type="text/javascript" src="{{asset('public/admin_assets/js/bootstrap-notify.js')}}"></script>
+        
 
         <!-- Material Dashboard javascript methods -->
         <script type="text/javascript" src="{{asset('public/admin_assets/js/material-dashboard.js')}}"></script>
