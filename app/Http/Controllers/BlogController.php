@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Category;
+use Illuminate\Support\Facades\Redirect;
 
 class BlogController extends Controller {
 
@@ -21,7 +22,11 @@ class BlogController extends Controller {
 
         //Initialize Sidebar Contents
         $this->layout['sidebar'] = view('layouts.sidebar', [
-            "categories" => Category::where("publication_status", 1)->get()
+            "categories" => Category::where("publication_status", 1)->get(),
+            "favourites" => Article::where("publication_status", 1)
+                ->where("deletion_status", 0)
+                ->where("favourite_status", 1)
+                ->get()
         ]);
     }
 
@@ -29,21 +34,58 @@ class BlogController extends Controller {
      * Blog Landing Page
      * lists all post prefaces
      */
-        
     public function index() {
 
         $articles = Article::where("deletion_status", 0)
                 ->where("publication_status", 1)
                 ->orderBy('created_at', 'DESC')
                 ->get();
-                
+
         $this->layout['main_content'] = view('pages.index')
                 ->with('allArticles', $articles);
 
         return view('layouts.master', $this->layout);
     }
 
-    
+    /**
+     * List by category
+     * @return type
+     */
+    public function listByCategory($category_id, $slug = "") {
+
+        $articles = Article::where("deletion_status", 0)
+                ->where("publication_status", 1)
+                ->where("category_id", $category_id)
+                ->orderBy('created_at', 'DESC')
+                ->get();
+
+        $this->layout['main_content'] = view('pages.index')
+                ->with('allArticles', $articles);
+
+        return view('layouts.master', $this->layout);
+    }
+
+    /**
+     * Blog Single Article View
+     * View Full post and Comments
+     */
+    public function post($postId, $slug = "") {
+
+        $article = Article::where("article_id", $postId)
+                ->where("publication_status", 1)
+                ->where("deletion_status", 0)
+                ->first();
+
+        if (!$article) {
+            return Redirect::to('/');
+        }
+
+        $this->layout['main_content'] = view('pages.viewpost')
+                ->with("article", $article);
+
+        return view('layouts.master', $this->layout);
+    }
+
     /**
      * About Us Page
      * @return type
@@ -56,22 +98,6 @@ class BlogController extends Controller {
     }
 
     /**
-     * Blog Single Post View
-     * View Full post and Comments
-     */
-    public function post($postId) {
-        
-        $article = Article::find($postId);
-        
-        $this->layout['main_content'] = view('pages.viewpost')
-                ->with("article",$article);
-
-        return view('layouts.master', $this->layout);
-
-    }
-
-    
-    /**
      * Contact Us Page
      * @return type
      */
@@ -83,7 +109,6 @@ class BlogController extends Controller {
         return view('layouts.master', $this->layout);
     }
 
-    
     /**
      * Show the form for creating a new resource.
      *

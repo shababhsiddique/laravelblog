@@ -7,8 +7,8 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header" data-background-color="purple">
-                <h4 class="title">Articles</h4>
-                <p class="category">List of All Articles</p>
+                <h4 class="title">Articles<a href="{{url('admin/new-article')}}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i>&nbsp;&nbsp;New</a></h4>
+                <p class="category">List of All Articles</p>                
             </div>
             <div class="card-content table-responsive">
                 <table class="table">
@@ -30,9 +30,14 @@
                                 <td>{{$anArticle->article_slug}}</td>
                                 <td>{{substr(strip_tags($anArticle->article_body),0,100)}}...</td>
                                 <td>{{$anArticle->category->category_name}}</td>
-                                <td>
+                                <td>                                    
+                                    
+                                    @if ($anArticle->favourite_status == 1)
+                                    <i class="fa fa-star text-warning"></i> / 
+                                    @endif
+                                    
                                     @if ($anArticle->publication_status == 0)
-                                    <i class="fa fa-eye-slash text-warning"></i> Unpublished
+                                    <span class="text-danger"><i class="fa fa-eye-slash"></i> Unpublished</span>
                                     @else
                                     <i class="fa fa-eye text-success"></i> Published
                                     @endif
@@ -43,9 +48,16 @@
                                         <i class="fa fa-pencil"></i>
                                     </a>
 
-                                    <a href="{{url('/admin/edit-article/'.$anArticle->article_id)}}" type="button" rel="tooltip" title="" class="btn btn-success btn-sm" data-original-title="Show On Favourite">
+                                    <!--Show favourite button if currently not marked,--> 
+                                    @if ($anArticle->favourite_status == 0)
+                                    <a href="{{url('/admin/changestatus-article/fav/'.$anArticle->article_id)}}" type="button" rel="tooltip" title="" class="btn btn-success btn-sm" data-original-title="Mar as Favourite">
                                         <i class="fa fa-star"></i>
                                     </a>
+                                    @else
+                                    <a href="{{url('/admin/changestatus-article/unfav/'.$anArticle->article_id)}}" type="button" rel="tooltip" title="" class="btn btn-default btn-sm" data-original-title="Unmark As Favourite">
+                                        <i class="fa fa-star-o"></i>
+                                    </a>
+                                    @endif
 
                                     <!--Show thumbs up button if unpublished,--> 
                                     @if ($anArticle->publication_status == 0)
@@ -116,7 +128,7 @@
             </div>
             <div class="card-content ">               
 
-                <?php foreach ($allArticles as $anArticle) { ?>
+                <?php foreach ($favouriteArticles as $anArticle) { ?>
                     <hr/>
                     <h4 class="text-left"><strong>{{$anArticle->article_title}}</strong></h4>
                     <p class="text-left">{{substr(strip_tags($anArticle->article_body),0,100)}}...</p>

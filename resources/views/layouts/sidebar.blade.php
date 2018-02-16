@@ -10,7 +10,8 @@
         <div class="row">
             <div class="list-group list-group-flush col-md-12">
                 <?php foreach ($categories as $aCategory) { ?>
-                    <a href="{{url('category').'/'.$aCategory->category_id}}" class="list-group-item border-0 waves-effect waves-classic">{{$aCategory->category_name}} </a>
+
+                    <a href="{{url('/blog/'.$aCategory->category_id.'/'.$aCategory->category_name)}}" class="list-group-item border-0 waves-effect waves-classic">{{$aCategory->category_name}} </a>
                 <?php } ?>
             </div>
         </div>
@@ -32,32 +33,19 @@
     </div>
 
     <div class="widget-wrapper wow fadeIn" data-wow-delay="0.5s">
-        <h5>Recent</h5>
+        <h5>Favourites</h5>
         <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">List group item heading</h5>
-                    <small>3 days ago</small>
-                </div>
-                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                <small>Donec id elit non mi porta.</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">List group item heading</h5>
-                    <small class="text-muted">3 days ago</small>
-                </div>
-                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                <small class="text-muted">Donec id elit non mi porta.</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">List group item heading</h5>
-                    <small class="text-muted">3 days ago</small>
-                </div>
-                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                <small class="text-muted">Donec id elit non mi porta.</small>
-            </a>
+            <?php foreach ($favourites as $aFavourite) { ?>
+                <a href="{{url('post/').'/'.$aFavourite->article_id.'/'.$aFavourite->article_slug}}" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{$aFavourite->article_title}}</h5>
+                        <small>{{$aFavourite->created_at}}</small>
+                    </div>
+                    <p class="mb-1">{{ substr(strip_tags($aFavourite->article_body),0,300) }}...</p>
+                    <small>by Admin in <strong>{{$aFavourite->category->category_name}}</strong></small>
+                </a>
+            <?php } ?>
+            
         </div>
 
     </div>

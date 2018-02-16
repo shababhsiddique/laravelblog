@@ -13,9 +13,15 @@
 
 /* Blog */
 Route::get('/', 'BlogController@index');
+Route::get('/blog', 'BlogController@index');
+Route::get('/blog/{category_id}', 'BlogController@listByCategory');
+Route::get('/blog/{category_id}/{category_slug}', 'BlogController@listByCategory');
+
 Route::get('/contact', 'BlogController@contact');
 Route::get('/about', 'BlogController@about');
+
 Route::get('/post/{id}', 'BlogController@post');
+Route::get('/post/{id}/{slug}', 'BlogController@post');
 
 
 /* Auth Generated */
@@ -53,6 +59,9 @@ Route::get('/admin/edit-article/{id}', 'AdminController@editArticle');
 Route::post('/save-article', 'AdminController@saveArticle');
 
 Route::get('/admin/changestatus-article/{status}/{id}', 'AdminController@changeArticleStatus');
+
+
+
 
 
 

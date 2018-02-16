@@ -17,7 +17,7 @@
                 <a href="">
                     <strong>Admin</strong>
                 </a> in 
-                <a href="{{$anArticle->category->category_name}}">
+                <a href="{{url('/blog/'.$anArticle->category_id)}}">
                     <strong>{{$anArticle->category->category_name}}</strong>
                 </a>, {{$anArticle->created_at}}</h6>
 
@@ -36,7 +36,7 @@
             <p>{{ substr(strip_tags($anArticle->article_body),0,300) }}</p>
 
             <!--"Read more" button-->
-            <a href="{{url('post/').'/'.$anArticle->article_id}}" class="btn btn-blue btn-md">Read more</a>
+            <a href="{{url('post/').'/'.$anArticle->article_id.'/'.$anArticle->article_slug}}" class="btn btn-blue btn-md">Read more</a>
         </div>
         <!--/.Post-->
 

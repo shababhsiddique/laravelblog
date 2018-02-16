@@ -12,7 +12,6 @@ session_start();
 
 class AdminController extends Controller {
 
-    
     //View Components Holder
     private $layout;
 
@@ -87,7 +86,6 @@ class AdminController extends Controller {
         //Load Component        
         $this->layout['adminContent'] = view('admin.partials.category_form');
 //        $this->layout['site_title'] = "Add Category";
-        
         //return view
         return view('admin.master', $this->layout);
     }
@@ -144,15 +142,24 @@ class AdminController extends Controller {
         $this->authCheck();
 
         $category = Category::find($id);
-        $category->delete();
+        if ($category->articles->isEmpty()) {
+            $category->delete();
 
+            //Message for Notification Builder
+            Session::put('message', array(
+                'title' => 'Deleted Category',
+                'body' => 'Category forever removed from Database',
+                'type' => 'success'
+            ));
+        } else {
 
-        //Message for Notification Builder
-        Session::put('message', array(
-            'title' => 'Deleted Category',
-            'body' => 'Category forever removed from Database',
-            'type' => 'success'
-        ));
+            //Message for Notification Builder
+            Session::put('message', array(
+                'title' => 'Cannot Delete Category',
+                'body' => 'Category currently under use',
+                'type' => 'danger'
+            ));
+        }
 
 
         return Redirect::to('/admin/list-category');
@@ -215,7 +222,7 @@ class AdminController extends Controller {
     public function updateCategory(Request $request) {
 
         $this->authCheck();
-        
+
         $category = Category::find($request->category_id);
 
         $category->category_name = $request->category_name;
@@ -345,17 +352,24 @@ class AdminController extends Controller {
                 ->orderBy('updated_at', 'DESC')
                 ->get();
 
+        $favArticles = Article::where("favourite_status", 1)
+                ->where("deletion_status", 0)
+                ->where("publication_status", 1)
+                ->orderBy('updated_at', 'DESC')
+                ->get();
+
         //Load Component        
         $this->layout['adminContent'] = view('admin.partials.article_table')
                 ->with('allArticles', $listArticles)
-                ->with('deletedArticles', $dltdArticles);
+                ->with('deletedArticles', $dltdArticles)
+                ->with('favouriteArticles', $favArticles);
 
 
         return view('admin.master', $this->layout);
     }
 
     /**
-     * 
+     * Alter a status of selected article, publish, delete, favourite
      * @param type $status
      * @param type $id
      * @return type
@@ -366,6 +380,32 @@ class AdminController extends Controller {
 
 
         switch ($status) {
+            case "fav":
+
+                $article = Article::find($id);
+                $article->favourite_status = 1;
+                $article->save();
+
+                //Message for Notification Builder
+                Session::put('message', array(
+                    'title' => 'Article Set To Favourite',
+                    'body' => 'Article marked as favourite',
+                    'type' => 'success'
+                ));
+                break;
+            case "unfav":
+
+                $article = Article::find($id);
+                $article->favourite_status = 0;
+                $article->save();
+
+                //Message for Notification Builder
+                Session::put('message', array(
+                    'title' => 'Article Favourite Flag Removed',
+                    'body' => 'Article unmarked as favourite',
+                    'type' => 'success'
+                ));
+                break;
             case "del":
 
                 $article = Article::find($id);
@@ -376,7 +416,7 @@ class AdminController extends Controller {
                 Session::put('message', array(
                     'title' => 'Deleted Article',
                     'body' => 'Article moved to trash',
-                    'type' => 'info'
+                    'type' => 'success'
                 ));
                 break;
             case "rec":
@@ -390,7 +430,7 @@ class AdminController extends Controller {
                 Session::put('message', array(
                     'title' => 'Article Restored',
                     'body' => 'Article moved back from trash',
-                    'type' => 'info'
+                    'type' => 'success'
                 ));
                 break;
             case "pub":
@@ -403,7 +443,7 @@ class AdminController extends Controller {
                 Session::put('message', array(
                     'title' => 'Updated Article Status to published',
                     'body' => 'This article is now visible',
-                    'type' => 'info'
+                    'type' => 'success'
                 ));
                 break;
             default:
@@ -416,7 +456,7 @@ class AdminController extends Controller {
                 Session::put('message', array(
                     'title' => 'Updated Article Status to unpublished',
                     'body' => 'This article will be invisible',
-                    'type' => 'info'
+                    'type' => 'success'
                 ));
                 break;
         }

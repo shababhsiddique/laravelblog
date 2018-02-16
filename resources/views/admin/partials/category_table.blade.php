@@ -6,7 +6,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header" data-background-color="purple">
-                <h4 class="title">Catogires</h4>
+                <h4 class="title">Catogires<a href="{{url('admin/add-category')}}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i>&nbsp;&nbsp;New</a></h4>
                 <p class="category">List of All Categories</p>
             </div>
             <div class="card-content table-responsive">

@@ -12,7 +12,7 @@
                 <a href="">
                     <strong>Admin</strong>
                 </a> in 
-                <a href="{{$article->category->category_name}}">
+                <a href="{{url('/blog/'.$article->category_id)}}">
                     <strong>{{$article->category->category_name}}</strong>
                 </a>, {{$article->created_at}}</h6>
 
