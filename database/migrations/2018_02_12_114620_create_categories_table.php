@@ -12,7 +12,7 @@ class CreateCategoriesTable extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('category', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->increments('category_id');
             $table->string("category_name");
             $table->text("category_description");
@@ -22,7 +22,7 @@ class CreateCategoriesTable extends Migration {
 
 
         // Create Sample Categories
-        DB::table('category')->insert(
+        DB::table('categories')->insert(
                 array(
                     'category_name' => 'Education',
                     'category_description' => 'Investment for the next generation',
@@ -30,7 +30,7 @@ class CreateCategoriesTable extends Migration {
                 )
         );
 
-        DB::table('category')->insert(
+        DB::table('categories')->insert(
                 array(
                     'category_name' => 'Economy',
                     'category_description' => 'Are we really that rich?',
@@ -38,7 +38,7 @@ class CreateCategoriesTable extends Migration {
                 )
         );
 
-        DB::table('category')->insert(
+        DB::table('categories')->insert(
                 array(
                     'category_name' => 'Technology',
                     'category_description' => 'It cant wait',

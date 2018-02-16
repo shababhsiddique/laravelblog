@@ -28,6 +28,17 @@ class CreateArticlesTable extends Migration
             
             $table->timestamps();
         });
+        
+        DB::table('articles')->insert(
+                array(
+                    'article_title' => 'Someday I will master laravel',
+                    'article_slug' => 'someday-i-will-master-laravel',
+                    'article_body' => 'That day wont be far',
+                    'category_id' => 1,
+                    'publication_status' => 1,
+                    'deletion_status' => 0
+                )
+        );
     }
 
     /**
