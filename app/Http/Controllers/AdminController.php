@@ -88,7 +88,8 @@ class AdminController extends Controller {
 
         //Load Component        
         $this->layout['adminContent'] = view('admin.partials.category_form');
-
+//        $this->layout['site_title'] = "Add Category";
+        
         //return view
         return view('admin.master', $this->layout);
     }
@@ -113,7 +114,7 @@ class AdminController extends Controller {
         ));
 
 
-        return Redirect::to('/dashboard/add-category');
+        return Redirect::to('/admin/add-category');
     }
 
     public function listAllCategory() {
