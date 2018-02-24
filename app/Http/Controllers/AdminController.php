@@ -299,6 +299,13 @@ class AdminController extends Controller {
 
         $this->authCheck();
 
+        $oldFileName = $request->article_image_previous;
+//        echo "<pre>";
+//        echo $oldFileName;
+//        print_r($_POST);
+//        exit();
+        
+
         if (isset($request->article_id)) {
 
             //Its Update
@@ -322,11 +329,73 @@ class AdminController extends Controller {
                 'type' => 'success'
             ));
         }
+        
+        
+        /*
+         * Image Upload
+         */
 
+        $files = $request->file('article_image');
+
+        //Check if file chosen
+        if ($files) {
+
+            //File Is Selected, Proceed with upload
+            $filename = $files->getClientOriginalName();
+
+            //Generate A filename
+            $customName = date('His') . $filename;
+
+            //Get Img url for keeping
+            $imgUrl = 'public/article_images/' . $customName;
+
+            //Get path for upload
+            $destinationPath = base_path() . "/public/article_images/";
+
+            //Try upload
+            $success = $files->move($destinationPath, $customName);
+
+            if ($success) {
+
+                if (isset($request->article_id)) {
+                    
+                    $oldFileName = $request->article_image_previous;
+                    unlink($oldFileName);
+                    
+                } 
+                
+                $article->article_image = $imgUrl;
+                
+                //If it is an edit , remove old file
+                
+
+            } else {
+
+                //File Upload Failed, 
+                Session::put('message', array(
+                    'title' => 'Error',
+                    'body' => "File Upload Failed",
+                    'type' => 'danger'
+                ));
+
+                
+                return Redirect::to('/admin/list-articles');
+            }
+        }
+        
+
+        /* Common Tasks */
         $article->article_title = $request->article_title;
-        $article->article_body = $request->article_body;
+        
+        $article->article_preface = $request->article_preface;
+        $article->article_body = $request->article_body;        
+        
         $article->article_slug = $request->article_slug;
+        
         $article->category_id = $request->category_id;
+        
+        $article->article_author = Session::get('admin_name');
+        
         $article->publication_status = $request->publication_status;
 
         $article->deletion_status = 0;

@@ -24,6 +24,7 @@
         <script src="{{asset('public/admin_assets/js/jquery-3.2.1.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('public/admin_assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('public/admin_assets/js/bootbox.min.js')}}" type="text/javascript"></script>
+        <script src="https://cdn.ckeditor.com/4.8.0/full/ckeditor.js"></script>
         <script src="{{asset('public/admin_assets/js/material.min.js')}}" type="text/javascript"></script>
 
 

@@ -94,7 +94,7 @@
                     <thead class="text-primary">
                         <tr>
                             <th>Name</th>
-                            <th>slug</th>
+                            <th></th>
                             <th>Category</th>
                             <th>Last Updated</th>
                             <th style="width: 30px"></th>
@@ -105,10 +105,8 @@
                             <tr>
                                 <td class="text-left">{{$anArticle->article_title}}</td>
                                 <td class="text-left">{{$anArticle->article_slug}}</td>
-                                <td class="text-left">{{$anArticle->category_id}}</td>
-                                <td class="text-left">
-
-                                </td>
+                                <td class="text-left">{{$anArticle->category->category_name}}</td>
+                                <td class="text-left">{{$anArticle->updated_at}}</td>
                                 <td class="td-actions text-right">
                                     <a href="{{url('/admin/changestatus-article/rec/'.$anArticle->article_id)}}" type="button" rel="tooltip" title="" class="btn btn-primary btn-sm" data-original-title="Undo Delete">
                                         <i class="fa fa-undo"></i>

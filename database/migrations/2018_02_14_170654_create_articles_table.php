@@ -18,8 +18,12 @@ class CreateArticlesTable extends Migration
             $table->increments('article_id');
             
             $table->string('article_title',100);
-            $table->text('article_body',100)->nullable();
+            $table->string('article_image',100)->nullable();
+            $table->text('article_body')->nullable();
+            $table->text('article_preface')->nullable();
             $table->string('article_slug',100);
+            
+            $table->string('article_author',100);
             
             $table->integer('category_id');
             
@@ -35,6 +39,8 @@ class CreateArticlesTable extends Migration
                     'article_title' => 'Someday I will master laravel',
                     'article_slug' => 'someday-i-will-master-laravel',
                     'article_body' => 'That day wont be far',
+                    'article_preface' => 'That day wont be far',
+                    'article_author' => 'Migration',
                     'category_id' => 1,
                     'favourite_status' => 0,
                     'publication_status' => 1,
@@ -48,6 +54,8 @@ class CreateArticlesTable extends Migration
                     'article_title' => 'That Day Is Near',
                     'article_slug' => 'that-day',
                     'article_body' => 'That day wont be far',
+                    'article_preface' => 'That day wont be far',
+                    'article_author' => 'Migration',
                     'category_id' => 2,
                     'favourite_status' => 0,
                     'publication_status' => 1,
@@ -61,6 +69,8 @@ class CreateArticlesTable extends Migration
                     'article_title' => 'Are We There Yet',
                     'article_slug' => 'are-we-there',
                     'article_body' => 'That day wont be far',
+                    'article_preface' => 'That day wont be far',
+                    'article_author' => 'Migration',
                     'category_id' => 3,
                     'favourite_status' => 0,
                     'publication_status' => 1,
