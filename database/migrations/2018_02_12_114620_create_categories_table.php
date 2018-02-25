@@ -24,25 +24,38 @@ class CreateCategoriesTable extends Migration {
         // Create Sample Categories
         DB::table('categories')->insert(
                 array(
-                    'category_name' => 'Education',
-                    'category_description' => 'Investment for the next generation',
-                    'publication_status' => 1
+                    'category_name' => 'বাংলাদেশ',
+                    'category_description' => 'বাংলাদেশ বাংলাদেশ',
+                    'publication_status' => 1,
+                    'created_at' => date('Y-m-d H:i:s')
                 )
         );
 
         DB::table('categories')->insert(
                 array(
-                    'category_name' => 'Economy',
-                    'category_description' => 'Are we really that rich?',
-                    'publication_status' => 1
+                    'category_name' => 'আন্তর্জাতিক',
+                    'category_description' => 'আন্তর্জাতিক আন্তর্জাতিক',
+                    'publication_status' => 1,
+                    'created_at' => date('Y-m-d H:i:s')
+                )
+        );
+
+
+        DB::table('categories')->insert(
+                array(
+                    'category_name' => 'খেলা',
+                    'category_description' => 'খেলা খেলা',
+                    'publication_status' => 1,
+                    'created_at' => date('Y-m-d H:i:s')
                 )
         );
 
         DB::table('categories')->insert(
                 array(
-                    'category_name' => 'Technology',
-                    'category_description' => 'It cant wait',
-                    'publication_status' => 1
+                    'category_name' => 'অর্থনীতি',
+                    'category_description' => 'অর্থনীতি অর্থনীতি অর্থনীতি',
+                    'publication_status' => 1,
+                    'created_at' => date('Y-m-d H:i:s')
                 )
         );
     }

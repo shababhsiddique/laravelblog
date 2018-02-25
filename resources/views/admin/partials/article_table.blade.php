@@ -28,7 +28,7 @@
                             <tr>
                                 <td>{{$anArticle->article_title}}</td>
                                 <td>{{$anArticle->article_slug}}</td>
-                                <td>{{substr(strip_tags($anArticle->article_body),0,100)}}...</td>
+                                <td>{{mb_substr(strip_tags($anArticle->article_preface),0,50)}}....</td>
                                 <td>{{$anArticle->category->category_name}}</td>
                                 <td>                                    
                                     

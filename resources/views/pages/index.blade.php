@@ -25,7 +25,7 @@
 
             <!--Featured image -->            
             <div class="view overlay hm-white-light z-depth-1-half rounded">
-                <img src="{{asset($anArticle->article_image)}}" class="img-fluid" alt="">
+                <img src="{{asset($anArticle->article_image)}}" width="100%" class="img-responsive" alt="">
                 <div class="mask">
                 </div>
             </div>
@@ -33,7 +33,7 @@
             <br>
 
             <!--Post excerpt-->
-            <p>{{ substr(strip_tags($anArticle->article_body),0,300) }}</p>
+            <p>{!!$anArticle->article_preface!!}</p>
 
             <!--"Read more" button-->
             <a href="{{url('post/').'/'.$anArticle->article_id.'/'.$anArticle->article_slug}}" class="btn btn-blue btn-md">Read more</a>

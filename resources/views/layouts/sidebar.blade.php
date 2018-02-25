@@ -2,7 +2,7 @@
 
 @section('sidebarContent')
 
-<div class="col-lg-4 z-depth-1" style="padding-top: 20px">
+<div class="col-md-4 z-depth-1" style="padding-top: 20px">
     <div class="widget-wrapper wow fadeIn" data-wow-delay="0.4s">
 
         <h5>Categories</h5>
@@ -41,7 +41,7 @@
                         <h5 class="mb-1">{{$aFavourite->article_title}}</h5>
                         <small>{{$aFavourite->created_at}}</small>
                     </div>
-                    <p class="mb-1">{{ substr(strip_tags($aFavourite->article_body),0,300) }}...</p>
+                    <p class="mb-1">{{mb_substr(strip_tags($aFavourite->article_preface),0,100)}}....</p>
                     <small>by Admin in <strong>{{$aFavourite->category->category_name}}</strong></small>
                 </a>
             <?php } ?>

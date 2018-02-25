@@ -20,7 +20,7 @@
 
         <!--Featured image -->
         <div class="view overlay hm-white-light z-depth-1-half rounded">
-            <img src="{{asset($article->article_image)}}" class="img-fluid" alt="">
+            <img src="{{asset($article->article_image)}}" width="100%" class="img-responsive" alt="">
             <div class="mask">
             </div>
         </div>
