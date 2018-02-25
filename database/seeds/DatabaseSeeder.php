@@ -11,6 +11,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+           //Create Blog Posts
+        $path = 'db_blog_seeder.sql';
+        DB::unprepared(file_get_contents($path));
+        $this->command->info('Blog Posts seeded!');
+
+
     }
 }

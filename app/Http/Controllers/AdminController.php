@@ -346,8 +346,10 @@ class AdminController extends Controller {
 
             if ($success) {
 
-                if (isset($request->article_id)) {
-
+                
+                
+                
+                if (isset($request->article_id) && ($request->article_image_previous!="")) {                                        
                     $oldFileName = $request->article_image_previous;
                     unlink($oldFileName);
                 }
