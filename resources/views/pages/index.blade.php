@@ -11,7 +11,7 @@
         <div class="post-wrapper wow fadeIn" data-wow-delay="0.2s">
             <!--Post data-->
             <h1 class="h1-responsive dark-grey-text font-bold">{{$anArticle->article_title}}
-                <!--<small class="text-muted">{{$anArticle->category->category_name}}</small>-->
+                
             </h1>
             <h6>Written by
                 <a href="">
@@ -23,9 +23,9 @@
 
             <br>
 
-            <!--Featured image -->
+            <!--Featured image -->            
             <div class="view overlay hm-white-light z-depth-1-half rounded">
-                <img src="{{asset('public/img/76.jpg')}}" class="img-fluid" alt="">
+                <img src="{{asset($anArticle->article_image)}}" class="img-fluid" alt="">
                 <div class="mask">
                 </div>
             </div>
